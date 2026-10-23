@@ -1,0 +1,23 @@
+{
+  "instances": [
+    "https://inv.nadeko.net",
+    "https://invidious.nerdvpn.de",
+    "https://yt.chocolatemoo53.com",
+    "https://invidious.tiekoetter.com"
+  ],
+  "sort": "relevance",
+  "default_region": "US",
+  "min_views": 50000,
+  "rising_min_views": 10000,
+  "rising_min_views_per_hour": 1000,
+  "emerging": {
+    "high_min_views": 500,
+    "high_min_views_per_hour": 100,
+    "medium_min_views": 1000,
+    "medium_min_views_per_hour": 200
+  },
+  "watchlist": {
+    "high_min_views": 500,
+    "medium_min_views": 750
+  }
+}

@@ -1,0 +1,4919 @@
+{
+  "schema_version": 6,
+  "profiles": [
+    {
+      "schema_version": 6,
+      "id": "police-chase",
+      "name": "Police Chase",
+      "enabled": true,
+      "semantics": {
+        "intent": "real-world-event",
+        "canonical_concept": "police-chase",
+        "summary": "Real police pursuits and vehicle chases. Police-related footage without an actual pursuit is not sufficient.",
+        "concepts": [
+          {
+            "id": "police-chase",
+            "label": "Police chase",
+            "relation": "canonical",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "police chase",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "persecución policial",
+                "language": "es",
+                "region": "ES"
+              },
+              {
+                "text": "perseguição policial",
+                "language": "pt",
+                "region": "BR"
+              },
+              {
+                "text": "poursuite policière",
+                "language": "fr",
+                "region": "FR"
+              },
+              {
+                "text": "Verfolgungsjagd Polizei",
+                "language": "de",
+                "region": "DE"
+              },
+              {
+                "text": "politieachtervolging",
+                "language": "nl",
+                "region": "NL"
+              },
+              {
+                "text": "pościg policyjny",
+                "language": "pl",
+                "region": "PL"
+              },
+              {
+                "text": "полицейская погоня",
+                "language": "ru",
+                "region": "RU"
+              },
+              {
+                "text": "polis kovalamaca",
+                "language": "tr",
+                "region": "TR"
+              },
+              {
+                "text": "مطاردة الشرطة",
+                "language": "ar",
+                "region": "SA"
+              },
+              {
+                "text": "kejar-kejaran polisi",
+                "language": "id",
+                "region": "ID"
+              },
+              {
+                "text": "पुलिस पीछा",
+                "language": "hi",
+                "region": "IN"
+              },
+              {
+                "text": "পুলিশের ধাওয়া",
+                "language": "bn",
+                "region": "BD"
+              },
+              {
+                "text": "போலீஸ் துரத்தல்",
+                "language": "ta",
+                "region": "IN"
+              },
+              {
+                "text": "警方追捕",
+                "language": "zh",
+                "region": "TW"
+              },
+              {
+                "text": "警察 カーチェイス",
+                "language": "ja",
+                "region": "JP"
+              },
+              {
+                "text": "경찰 추격전",
+                "language": "ko",
+                "region": "KR"
+              }
+            ]
+          },
+          {
+            "id": "police-pursuit",
+            "label": "Police pursuit",
+            "relation": "equivalent",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "police pursuit",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "vehicle pursuit",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "huye de la policía",
+                "language": "es",
+                "region": "ES"
+              },
+              {
+                "text": "fuga da polícia",
+                "language": "pt",
+                "region": "BR"
+              },
+              {
+                "text": "course poursuite police",
+                "language": "fr",
+                "region": "FR"
+              },
+              {
+                "text": "Flucht vor Polizei",
+                "language": "de",
+                "region": "DE"
+              },
+              {
+                "text": "vlucht voor politie",
+                "language": "nl",
+                "region": "NL"
+              },
+              {
+                "text": "ucieczka przed policją",
+                "language": "pl",
+                "region": "PL"
+              },
+              {
+                "text": "погоня полиции",
+                "language": "ru",
+                "region": "RU"
+              },
+              {
+                "text": "polisten kaçış",
+                "language": "tr",
+                "region": "TR"
+              },
+              {
+                "text": "هروب من الشرطة",
+                "language": "ar",
+                "region": "SA"
+              },
+              {
+                "text": "dikejar polisi",
+                "language": "id",
+                "region": "ID"
+              },
+              {
+                "text": "पुलिस से भागा",
+                "language": "hi",
+                "region": "IN"
+              },
+              {
+                "text": "পুলিশকে ফাঁকি দিয়ে পালাল",
+                "language": "bn",
+                "region": "BD"
+              },
+              {
+                "text": "போலீஸ் சேஸ்",
+                "language": "ta",
+                "region": "IN"
+              },
+              {
+                "text": "警車追逐",
+                "language": "zh",
+                "region": "TW"
+              },
+              {
+                "text": "パトカー 追跡",
+                "language": "ja",
+                "region": "JP"
+              },
+              {
+                "text": "경찰차 추격",
+                "language": "ko",
+                "region": "KR"
+              }
+            ]
+          },
+          {
+            "id": "high-speed-pursuit",
+            "label": "High-speed pursuit",
+            "relation": "subtype",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "high speed police chase",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "high-speed police chase",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "high speed pursuit",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "high-speed pursuit",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "fleeing-police",
+            "label": "Fleeing / evading police",
+            "relation": "subtype",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "fleeing police",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "fleeing from police",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "evading police",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "eluding police",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "failure to stop police",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "pursuit-intervention",
+            "label": "Pursuit intervention",
+            "relation": "secondary",
+            "tier": "secondary",
+            "acceptance": "supporting",
+            "terms": [
+              {
+                "text": "PIT maneuver",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "spike strips",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "stop sticks",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "police roadblock",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          }
+        ],
+        "noise": {
+          "phrases": [
+            "sound effect",
+            "sound effects",
+            "sfx",
+            "green screen",
+            "greenscreen",
+            "meme",
+            "meme template",
+            "gameplay",
+            "walkthrough",
+            "vfx",
+            "cgi",
+            "animation",
+            "animated",
+            "cartoon",
+            "simulation",
+            "simulator",
+            "movie scene",
+            "film scene",
+            "trailer",
+            "minecraft",
+            "fortnite",
+            "roblox",
+            "beamng",
+            "gaming",
+            "gta5",
+            "gta 5",
+            "gta v",
+            "grand theft auto",
+            "video game",
+            "after effects",
+            "premiere pro",
+            "tutorial",
+            "how to make",
+            "music video",
+            "official audio",
+            "lyrics",
+            "lyric video",
+            "karaoke",
+            "instrumental",
+            "full album",
+            "album",
+            "song",
+            "podcast",
+            "reaction video",
+            "reacts to",
+            "compilation",
+            "top 10",
+            "top ten",
+            "fails compilation",
+            "crash test",
+            "crash tests",
+            "crash testing",
+            "mega win",
+            "sensational win",
+            "ultimate win",
+            "jackpot win",
+            "slot game",
+            "slot machine game",
+            "casino gameplay",
+            "casino bonus",
+            "police simulator",
+            "police game",
+            "car simulator",
+            "driving simulator",
+            "kids cartoon",
+            "nursery rhyme"
+          ],
+          "rules": [
+            {
+              "id": "non-real-media",
+              "description": "synthetische/entertainmentcontent is geen real-world event"
+            },
+            {
+              "id": "intent-not-event",
+              "description": "plannen, dreigen of proberen is niet hetzelfde als een uitgevoerd event"
+            }
+          ],
+          "semantic_rules": [
+            "police without pursuit context"
+          ]
+        }
+      },
+      "platforms": {
+        "youtube": {
+          "enabled": true,
+          "limits": {
+            "max_age_hours": 24,
+            "max_duration_seconds": 90
+          },
+          "discovery": {
+            "mode": "automatic",
+            "queries": [
+              {
+                "q": "police chase",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 100
+              },
+              {
+                "q": "police pursuit",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 98
+              },
+              {
+                "q": "vehicle pursuit",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 96
+              },
+              {
+                "q": "high speed police chase",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 94
+              },
+              {
+                "q": "high speed chase",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 92
+              },
+              {
+                "q": "high speed pursuit",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 90
+              },
+              {
+                "q": "police car chase",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 88
+              },
+              {
+                "q": "law enforcement pursuit",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 86
+              },
+              {
+                "q": "fleeing police",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 84
+              },
+              {
+                "q": "fleeing from police",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 82
+              },
+              {
+                "q": "evading police",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 80
+              },
+              {
+                "q": "eluding police",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 78
+              },
+              {
+                "q": "failure to stop police",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 76
+              },
+              {
+                "q": "traffic stop turns into chase",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 74
+              },
+              {
+                "q": "PIT maneuver police chase",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 72
+              },
+              {
+                "q": "spike strip police chase",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 70
+              },
+              {
+                "q": "police chase dashcam",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 68
+              },
+              {
+                "q": "police pursuit dashcam",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 66
+              },
+              {
+                "q": "police chase caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 64
+              },
+              {
+                "q": "police pursuit footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 62
+              },
+              {
+                "q": "police chase crash",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 60
+              },
+              {
+                "q": "stolen car police chase",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 60
+              },
+              {
+                "q": "motorcycle police chase",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 60
+              },
+              {
+                "q": "impaired driver police chase",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 60
+              },
+              {
+                "q": "reckless driver police pursuit",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 60
+              },
+              {
+                "q": "persecución policial",
+                "language": "es",
+                "region": "ES",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "perseguição policial",
+                "language": "pt",
+                "region": "BR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "poursuite policière",
+                "language": "fr",
+                "region": "FR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "Verfolgungsjagd Polizei",
+                "language": "de",
+                "region": "DE",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "politieachtervolging",
+                "language": "nl",
+                "region": "NL",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "pościg policyjny",
+                "language": "pl",
+                "region": "PL",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "полицейская погоня",
+                "language": "ru",
+                "region": "RU",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "polis kovalamaca",
+                "language": "tr",
+                "region": "TR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "مطاردة الشرطة",
+                "language": "ar",
+                "region": "SA",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "kejar-kejaran polisi",
+                "language": "id",
+                "region": "ID",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "पुलिस पीछा",
+                "language": "hi",
+                "region": "IN",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "পুলিশের ধাওয়া",
+                "language": "bn",
+                "region": "BD",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "போலீஸ் துரத்தல்",
+                "language": "ta",
+                "region": "IN",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "警方追捕",
+                "language": "zh",
+                "region": "TW",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "警察 カーチェイス",
+                "language": "ja",
+                "region": "JP",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "경찰 추격전",
+                "language": "ko",
+                "region": "KR",
+                "kind": "localized-core",
+                "weight": 100
+              }
+            ],
+            "query_budget_full": 41,
+            "notes": "V6 queries zijn platform-specifieke afgeleide discoverydata; semantische concepten blijven de bron van waarheid."
+          }
+        },
+        "telegram": {
+          "enabled": true,
+          "limits": {
+            "max_age_hours": 24,
+            "max_duration_seconds": 90
+          },
+          "discovery": {
+            "mode": "central-sources",
+            "notes": "Telegram sources worden centraal beheerd; dit profiel bepaalt semantiek en eligibility-limieten."
+          }
+        }
+      }
+    },
+    {
+      "schema_version": 6,
+      "id": "explosion",
+      "name": "Explosion",
+      "enabled": true,
+      "semantics": {
+        "intent": "real-world-event",
+        "canonical_concept": "explosion",
+        "summary": "Real physical explosions and blasts. Figurative uses, fictional entertainment and events that never occurred are excluded.",
+        "concepts": [
+          {
+            "id": "explosion",
+            "label": "Explosion",
+            "relation": "canonical",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "explosion",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "explosión",
+                "language": "es",
+                "region": "ES"
+              },
+              {
+                "text": "explosão",
+                "language": "pt",
+                "region": "BR"
+              },
+              {
+                "text": "explosion",
+                "language": "fr",
+                "region": "FR"
+              },
+              {
+                "text": "Explosion",
+                "language": "de",
+                "region": "DE"
+              },
+              {
+                "text": "explosie",
+                "language": "nl",
+                "region": "NL"
+              },
+              {
+                "text": "ontploffing",
+                "language": "nl",
+                "region": "NL"
+              },
+              {
+                "text": "wybuch",
+                "language": "pl",
+                "region": "PL"
+              },
+              {
+                "text": "взрыв",
+                "language": "ru",
+                "region": "RU"
+              },
+              {
+                "text": "patlama",
+                "language": "tr",
+                "region": "TR"
+              },
+              {
+                "text": "انفجار",
+                "language": "ar",
+                "region": "SA"
+              },
+              {
+                "text": "ledakan",
+                "language": "id",
+                "region": "ID"
+              },
+              {
+                "text": "विस्फोट",
+                "language": "hi",
+                "region": "IN"
+              },
+              {
+                "text": "বিস্ফোরণ",
+                "language": "bn",
+                "region": "BD"
+              },
+              {
+                "text": "வெடிப்பு",
+                "language": "ta",
+                "region": "IN"
+              },
+              {
+                "text": "爆炸",
+                "language": "zh",
+                "region": "TW"
+              },
+              {
+                "text": "爆発",
+                "language": "ja",
+                "region": "JP"
+              },
+              {
+                "text": "폭발",
+                "language": "ko",
+                "region": "KR"
+              }
+            ]
+          },
+          {
+            "id": "blast",
+            "label": "Blast",
+            "relation": "equivalent",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "blast",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "industrial-explosion",
+            "label": "Industrial explosion",
+            "relation": "subtype",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "industrial explosion",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "factory explosion",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "factory blast",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "refinery explosion",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "chemical plant explosion",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "warehouse explosion",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "gas explosion",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "detonation",
+            "label": "Detonation",
+            "relation": "related",
+            "tier": "secondary",
+            "acceptance": "supporting",
+            "terms": [
+              {
+                "text": "detonation",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "detonación",
+                "language": "es",
+                "region": "ES"
+              },
+              {
+                "text": "detonação",
+                "language": "pt",
+                "region": "BR"
+              },
+              {
+                "text": "detonation",
+                "language": "fr",
+                "region": "FR"
+              },
+              {
+                "text": "Detonation",
+                "language": "de",
+                "region": "DE"
+              },
+              {
+                "text": "detonatie",
+                "language": "nl",
+                "region": "NL"
+              },
+              {
+                "text": "детонация",
+                "language": "ru",
+                "region": "RU"
+              }
+            ]
+          }
+        ],
+        "noise": {
+          "phrases": [
+            "sound effect",
+            "sound effects",
+            "sfx",
+            "green screen",
+            "greenscreen",
+            "meme",
+            "meme template",
+            "gameplay",
+            "walkthrough",
+            "vfx",
+            "cgi",
+            "animation",
+            "animated",
+            "cartoon",
+            "simulation",
+            "simulator",
+            "movie scene",
+            "film scene",
+            "trailer",
+            "minecraft",
+            "fortnite",
+            "roblox",
+            "beamng",
+            "gaming",
+            "gta5",
+            "gta 5",
+            "gta v",
+            "grand theft auto",
+            "video game",
+            "after effects",
+            "premiere pro",
+            "tutorial",
+            "how to make",
+            "music video",
+            "official audio",
+            "lyrics",
+            "lyric video",
+            "karaoke",
+            "instrumental",
+            "full album",
+            "album",
+            "song",
+            "podcast",
+            "reaction video",
+            "reacts to",
+            "compilation",
+            "top 10",
+            "top ten",
+            "fails compilation",
+            "crash test",
+            "crash tests",
+            "crash testing",
+            "mega win",
+            "sensational win",
+            "ultimate win",
+            "jackpot win",
+            "slot game",
+            "slot machine game",
+            "casino gameplay",
+            "casino bonus",
+            "population explosion",
+            "price explosion",
+            "data explosion",
+            "hiv explosion",
+            "flavor explosion",
+            "flavour explosion",
+            "color explosion",
+            "colour explosion"
+          ],
+          "rules": [
+            {
+              "id": "non-real-media",
+              "description": "synthetische/entertainmentcontent is geen real-world event"
+            },
+            {
+              "id": "intent-not-event",
+              "description": "plannen, dreigen of proberen is niet hetzelfde als een uitgevoerd event"
+            }
+          ],
+          "semantic_rules": [
+            "metaphorical explosion"
+          ]
+        }
+      },
+      "platforms": {
+        "youtube": {
+          "enabled": true,
+          "limits": {
+            "max_age_hours": 24,
+            "max_duration_seconds": 90
+          },
+          "discovery": {
+            "mode": "automatic",
+            "queries": [
+              {
+                "q": "explosion",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 100
+              },
+              {
+                "q": "blast",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 98
+              },
+              {
+                "q": "detonation",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 96
+              },
+              {
+                "q": "industrial explosion",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 94
+              },
+              {
+                "q": "factory explosion",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 92
+              },
+              {
+                "q": "factory blast",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 90
+              },
+              {
+                "q": "gas explosion",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 88
+              },
+              {
+                "q": "gas blast",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 86
+              },
+              {
+                "q": "building explosion",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 84
+              },
+              {
+                "q": "building blast",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 82
+              },
+              {
+                "q": "warehouse explosion",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 80
+              },
+              {
+                "q": "warehouse blast",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 78
+              },
+              {
+                "q": "refinery explosion",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 76
+              },
+              {
+                "q": "chemical plant explosion",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 74
+              },
+              {
+                "q": "pipeline explosion",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 72
+              },
+              {
+                "q": "battery explosion",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 70
+              },
+              {
+                "q": "transformer explosion",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 68
+              },
+              {
+                "q": "vehicle explosion",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 66
+              },
+              {
+                "q": "explosion caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 64
+              },
+              {
+                "q": "blast caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 62
+              },
+              {
+                "q": "explosion caught on cctv",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 60
+              },
+              {
+                "q": "explosion caught on dashcam",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 60
+              },
+              {
+                "q": "explosion footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 60
+              },
+              {
+                "q": "blast footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 60
+              },
+              {
+                "q": "explosión",
+                "language": "es",
+                "region": "ES",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "explosão",
+                "language": "pt",
+                "region": "BR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "explosion",
+                "language": "fr",
+                "region": "FR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "Explosion",
+                "language": "de",
+                "region": "DE",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "explosie",
+                "language": "nl",
+                "region": "NL",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "wybuch",
+                "language": "pl",
+                "region": "PL",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "взрыв",
+                "language": "ru",
+                "region": "RU",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "patlama",
+                "language": "tr",
+                "region": "TR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "انفجار",
+                "language": "ar",
+                "region": "SA",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "ledakan",
+                "language": "id",
+                "region": "ID",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "विस्फोट",
+                "language": "hi",
+                "region": "IN",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "বিস্ফোরণ",
+                "language": "bn",
+                "region": "BD",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "வெடிப்பு",
+                "language": "ta",
+                "region": "IN",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "爆炸",
+                "language": "zh",
+                "region": "TW",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "爆発",
+                "language": "ja",
+                "region": "JP",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "폭발",
+                "language": "ko",
+                "region": "KR",
+                "kind": "localized-core",
+                "weight": 100
+              }
+            ],
+            "query_budget_full": 40,
+            "notes": "V6 queries zijn platform-specifieke afgeleide discoverydata; semantische concepten blijven de bron van waarheid."
+          }
+        },
+        "telegram": {
+          "enabled": true,
+          "limits": {
+            "max_age_hours": 24,
+            "max_duration_seconds": 90
+          },
+          "discovery": {
+            "mode": "central-sources",
+            "notes": "Telegram sources worden centraal beheerd; dit profiel bepaalt semantiek en eligibility-limieten."
+          }
+        }
+      }
+    },
+    {
+      "schema_version": 6,
+      "id": "crash",
+      "name": "Crash",
+      "enabled": true,
+      "semantics": {
+        "intent": "real-world-event",
+        "canonical_concept": "crash",
+        "summary": "Real physical crashes and collisions. A generic accident may broaden discovery but does not by itself establish that a crash occurred.",
+        "concepts": [
+          {
+            "id": "crash",
+            "label": "Crash",
+            "relation": "canonical",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "crash",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "choque",
+                "language": "es",
+                "region": "ES"
+              },
+              {
+                "text": "colisão",
+                "language": "pt",
+                "region": "BR"
+              },
+              {
+                "text": "collision",
+                "language": "fr",
+                "region": "FR"
+              },
+              {
+                "text": "Zusammenstoß",
+                "language": "de",
+                "region": "DE"
+              },
+              {
+                "text": "Kollision",
+                "language": "de",
+                "region": "DE"
+              },
+              {
+                "text": "botsing",
+                "language": "nl",
+                "region": "NL"
+              },
+              {
+                "text": "kolizja",
+                "language": "pl",
+                "region": "PL"
+              },
+              {
+                "text": "zderzenie",
+                "language": "pl",
+                "region": "PL"
+              },
+              {
+                "text": "столкновение",
+                "language": "ru",
+                "region": "RU"
+              },
+              {
+                "text": "çarpışma",
+                "language": "tr",
+                "region": "TR"
+              },
+              {
+                "text": "تصادم",
+                "language": "ar",
+                "region": "SA"
+              },
+              {
+                "text": "tabrakan",
+                "language": "id",
+                "region": "ID"
+              },
+              {
+                "text": "टक्कर",
+                "language": "hi",
+                "region": "IN"
+              },
+              {
+                "text": "সংঘর্ষ",
+                "language": "bn",
+                "region": "BD"
+              },
+              {
+                "text": "மோதல்",
+                "language": "ta",
+                "region": "IN"
+              },
+              {
+                "text": "碰撞",
+                "language": "zh",
+                "region": "TW"
+              },
+              {
+                "text": "衝突",
+                "language": "ja",
+                "region": "JP"
+              },
+              {
+                "text": "충돌",
+                "language": "ko",
+                "region": "KR"
+              }
+            ]
+          },
+          {
+            "id": "collision",
+            "label": "Collision",
+            "relation": "equivalent",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "collision",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "vehicle collision",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "traffic collision",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "head-on collision",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "choque",
+                "language": "es",
+                "region": "ES"
+              },
+              {
+                "text": "colisão",
+                "language": "pt",
+                "region": "BR"
+              },
+              {
+                "text": "collision",
+                "language": "fr",
+                "region": "FR"
+              },
+              {
+                "text": "Zusammenstoß",
+                "language": "de",
+                "region": "DE"
+              },
+              {
+                "text": "Kollision",
+                "language": "de",
+                "region": "DE"
+              },
+              {
+                "text": "botsing",
+                "language": "nl",
+                "region": "NL"
+              },
+              {
+                "text": "kolizja",
+                "language": "pl",
+                "region": "PL"
+              },
+              {
+                "text": "zderzenie",
+                "language": "pl",
+                "region": "PL"
+              },
+              {
+                "text": "столкновение",
+                "language": "ru",
+                "region": "RU"
+              },
+              {
+                "text": "çarpışma",
+                "language": "tr",
+                "region": "TR"
+              },
+              {
+                "text": "تصادم",
+                "language": "ar",
+                "region": "SA"
+              },
+              {
+                "text": "tabrakan",
+                "language": "id",
+                "region": "ID"
+              },
+              {
+                "text": "टक्कर",
+                "language": "hi",
+                "region": "IN"
+              },
+              {
+                "text": "সংঘর্ষ",
+                "language": "bn",
+                "region": "BD"
+              },
+              {
+                "text": "மோதல்",
+                "language": "ta",
+                "region": "IN"
+              },
+              {
+                "text": "碰撞",
+                "language": "zh",
+                "region": "TW"
+              },
+              {
+                "text": "衝突",
+                "language": "ja",
+                "region": "JP"
+              },
+              {
+                "text": "충돌",
+                "language": "ko",
+                "region": "KR"
+              }
+            ]
+          },
+          {
+            "id": "traffic-accident",
+            "label": "Traffic / vehicle accident",
+            "relation": "subtype",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "traffic accident",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "road accident",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "vehicle accident",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "car accident",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "motorcycle accident",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "rollover",
+            "label": "Rollover",
+            "relation": "subtype",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "rollover",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "rollover crash",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "vehicle rollover",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "pileup",
+            "label": "Pileup",
+            "relation": "subtype",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "pileup",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "multi vehicle crash",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "multi-car crash",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "wreck",
+            "label": "Wreck",
+            "relation": "related",
+            "tier": "secondary",
+            "acceptance": "supporting",
+            "terms": [
+              {
+                "text": "wreck",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "vehicle wreck",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "accident",
+            "label": "Accident",
+            "relation": "broader",
+            "tier": "secondary",
+            "acceptance": "supporting",
+            "terms": [
+              {
+                "text": "accident",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "accidente",
+                "language": "es",
+                "region": "ES"
+              },
+              {
+                "text": "acidente",
+                "language": "pt",
+                "region": "BR"
+              },
+              {
+                "text": "accident",
+                "language": "fr",
+                "region": "FR"
+              },
+              {
+                "text": "Unfall",
+                "language": "de",
+                "region": "DE"
+              },
+              {
+                "text": "ongeval",
+                "language": "nl",
+                "region": "NL"
+              },
+              {
+                "text": "wypadek",
+                "language": "pl",
+                "region": "PL"
+              },
+              {
+                "text": "авария",
+                "language": "ru",
+                "region": "RU"
+              },
+              {
+                "text": "kaza",
+                "language": "tr",
+                "region": "TR"
+              },
+              {
+                "text": "حادث",
+                "language": "ar",
+                "region": "SA"
+              },
+              {
+                "text": "kecelakaan",
+                "language": "id",
+                "region": "ID"
+              },
+              {
+                "text": "दुर्घटना",
+                "language": "hi",
+                "region": "IN"
+              },
+              {
+                "text": "দুর্ঘটনা",
+                "language": "bn",
+                "region": "BD"
+              },
+              {
+                "text": "விபத்து",
+                "language": "ta",
+                "region": "IN"
+              },
+              {
+                "text": "事故",
+                "language": "zh",
+                "region": "TW"
+              },
+              {
+                "text": "事故",
+                "language": "ja",
+                "region": "JP"
+              },
+              {
+                "text": "사고",
+                "language": "ko",
+                "region": "KR"
+              }
+            ],
+            "note": "Breder dan Crash: bruikbaar voor discovery, maar accident alleen is onvoldoende Crash-bewijs."
+          }
+        ],
+        "noise": {
+          "phrases": [
+            "sound effect",
+            "sound effects",
+            "sfx",
+            "green screen",
+            "greenscreen",
+            "meme",
+            "meme template",
+            "gameplay",
+            "walkthrough",
+            "vfx",
+            "cgi",
+            "animation",
+            "animated",
+            "cartoon",
+            "simulation",
+            "simulator",
+            "movie scene",
+            "film scene",
+            "trailer",
+            "minecraft",
+            "fortnite",
+            "roblox",
+            "beamng",
+            "gaming",
+            "gta5",
+            "gta 5",
+            "gta v",
+            "grand theft auto",
+            "video game",
+            "after effects",
+            "premiere pro",
+            "tutorial",
+            "how to make",
+            "music video",
+            "official audio",
+            "lyrics",
+            "lyric video",
+            "karaoke",
+            "instrumental",
+            "full album",
+            "album",
+            "song",
+            "podcast",
+            "reaction video",
+            "reacts to",
+            "compilation",
+            "top 10",
+            "top ten",
+            "fails compilation",
+            "crash test",
+            "crash tests",
+            "crash testing",
+            "mega win",
+            "sensational win",
+            "ultimate win",
+            "jackpot win",
+            "slot game",
+            "slot machine game",
+            "casino gameplay",
+            "casino bonus",
+            "stock market crash",
+            "market crash",
+            "crypto crash",
+            "computer crash",
+            "server crash",
+            "software crash",
+            "app crash",
+            "website crash",
+            "system crash"
+          ],
+          "rules": [
+            {
+              "id": "non-real-media",
+              "description": "synthetische/entertainmentcontent is geen real-world event"
+            },
+            {
+              "id": "intent-not-event",
+              "description": "plannen, dreigen of proberen is niet hetzelfde als een uitgevoerd event"
+            }
+          ],
+          "semantic_rules": [
+            "planned/intended crash",
+            "digital/economic crash"
+          ]
+        }
+      },
+      "platforms": {
+        "youtube": {
+          "enabled": true,
+          "limits": {
+            "max_age_hours": 24,
+            "max_duration_seconds": 90
+          },
+          "discovery": {
+            "mode": "automatic",
+            "queries": [
+              {
+                "q": "crash",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 100
+              },
+              {
+                "q": "collision",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 98
+              },
+              {
+                "q": "road crash",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 96
+              },
+              {
+                "q": "traffic collision",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 94
+              },
+              {
+                "q": "traffic accident",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 92
+              },
+              {
+                "q": "vehicle accident",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 90
+              },
+              {
+                "q": "rollover crash",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 88
+              },
+              {
+                "q": "pileup",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 86
+              },
+              {
+                "q": "wreck",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 84
+              },
+              {
+                "q": "dashcam crash",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 82
+              },
+              {
+                "q": "crash caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 80
+              },
+              {
+                "q": "collision caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 78
+              },
+              {
+                "q": "crash footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 76
+              },
+              {
+                "q": "collision footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 74
+              },
+              {
+                "q": "accident caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 72
+              },
+              {
+                "q": "motorcycle crash",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 70
+              },
+              {
+                "q": "truck crash",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 68
+              },
+              {
+                "q": "bus crash",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 66
+              },
+              {
+                "q": "train crash",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 64
+              },
+              {
+                "q": "aircraft crash",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 62
+              },
+              {
+                "q": "choque",
+                "language": "es",
+                "region": "ES",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "colisão",
+                "language": "pt",
+                "region": "BR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "collision",
+                "language": "fr",
+                "region": "FR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "Zusammenstoß",
+                "language": "de",
+                "region": "DE",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "botsing",
+                "language": "nl",
+                "region": "NL",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "kolizja",
+                "language": "pl",
+                "region": "PL",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "столкновение",
+                "language": "ru",
+                "region": "RU",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "çarpışma",
+                "language": "tr",
+                "region": "TR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "تصادم",
+                "language": "ar",
+                "region": "SA",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "tabrakan",
+                "language": "id",
+                "region": "ID",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "टक्कर",
+                "language": "hi",
+                "region": "IN",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "সংঘর্ষ",
+                "language": "bn",
+                "region": "BD",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "மோதல்",
+                "language": "ta",
+                "region": "IN",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "碰撞",
+                "language": "zh",
+                "region": "TW",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "衝突",
+                "language": "ja",
+                "region": "JP",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "충돌",
+                "language": "ko",
+                "region": "KR",
+                "kind": "localized-core",
+                "weight": 100
+              }
+            ],
+            "query_budget_full": 36,
+            "notes": "V6 queries zijn platform-specifieke afgeleide discoverydata; semantische concepten blijven de bron van waarheid."
+          }
+        },
+        "telegram": {
+          "enabled": true,
+          "limits": {
+            "max_age_hours": 24,
+            "max_duration_seconds": 90
+          },
+          "discovery": {
+            "mode": "central-sources",
+            "notes": "Telegram sources worden centraal beheerd; dit profiel bepaalt semantiek en eligibility-limieten."
+          }
+        }
+      }
+    },
+    {
+      "schema_version": 6,
+      "id": "war",
+      "name": "War",
+      "enabled": true,
+      "semantics": {
+        "intent": "real-world-event",
+        "canonical_concept": "war",
+        "summary": "Current, real-world warfare and combat events. Opinion, video games and historical documentaries do not automatically qualify as current events.",
+        "concepts": [
+          {
+            "id": "war",
+            "label": "War",
+            "relation": "canonical",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "war",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "guerra",
+                "language": "es",
+                "region": "ES"
+              },
+              {
+                "text": "guerra",
+                "language": "pt",
+                "region": "BR"
+              },
+              {
+                "text": "guerre",
+                "language": "fr",
+                "region": "FR"
+              },
+              {
+                "text": "Krieg",
+                "language": "de",
+                "region": "DE"
+              },
+              {
+                "text": "oorlog",
+                "language": "nl",
+                "region": "NL"
+              },
+              {
+                "text": "wojna",
+                "language": "pl",
+                "region": "PL"
+              },
+              {
+                "text": "война",
+                "language": "ru",
+                "region": "RU"
+              },
+              {
+                "text": "savaş",
+                "language": "tr",
+                "region": "TR"
+              },
+              {
+                "text": "حرب",
+                "language": "ar",
+                "region": "SA"
+              },
+              {
+                "text": "perang",
+                "language": "id",
+                "region": "ID"
+              },
+              {
+                "text": "युद्ध",
+                "language": "hi",
+                "region": "IN"
+              },
+              {
+                "text": "যুদ্ধ",
+                "language": "bn",
+                "region": "BD"
+              },
+              {
+                "text": "போர்",
+                "language": "ta",
+                "region": "IN"
+              },
+              {
+                "text": "战争",
+                "language": "zh",
+                "region": "TW"
+              },
+              {
+                "text": "戦争",
+                "language": "ja",
+                "region": "JP"
+              },
+              {
+                "text": "전쟁",
+                "language": "ko",
+                "region": "KR"
+              }
+            ]
+          },
+          {
+            "id": "armed-conflict",
+            "label": "Armed conflict",
+            "relation": "equivalent",
+            "tier": "secondary",
+            "acceptance": "supporting",
+            "terms": [
+              {
+                "text": "armed conflict",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "warfare",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "combat",
+            "label": "Combat / battle",
+            "relation": "related",
+            "tier": "secondary",
+            "acceptance": "supporting",
+            "terms": [
+              {
+                "text": "combat",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "battle",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "fighting",
+                "language": "en",
+                "region": "US"
+              }
+            ],
+            "note": "Discovery/support only. Generic combat wording is not sufficient for HIGH War relevance."
+          }
+        ],
+        "noise": {
+          "phrases": [
+            "sound effect",
+            "sound effects",
+            "sfx",
+            "green screen",
+            "greenscreen",
+            "meme",
+            "meme template",
+            "gameplay",
+            "walkthrough",
+            "vfx",
+            "cgi",
+            "animation",
+            "animated",
+            "cartoon",
+            "simulation",
+            "simulator",
+            "movie scene",
+            "film scene",
+            "trailer",
+            "minecraft",
+            "fortnite",
+            "roblox",
+            "beamng",
+            "gaming",
+            "gta5",
+            "gta 5",
+            "gta v",
+            "grand theft auto",
+            "video game",
+            "after effects",
+            "premiere pro",
+            "tutorial",
+            "how to make",
+            "music video",
+            "official audio",
+            "lyrics",
+            "lyric video",
+            "karaoke",
+            "instrumental",
+            "full album",
+            "album",
+            "song",
+            "podcast",
+            "reaction video",
+            "reacts to",
+            "compilation",
+            "top 10",
+            "top ten",
+            "fails compilation",
+            "crash test",
+            "crash tests",
+            "crash testing",
+            "mega win",
+            "sensational win",
+            "ultimate win",
+            "jackpot win",
+            "slot game",
+            "slot machine game",
+            "casino gameplay",
+            "casino bonus",
+            "war game",
+            "war games",
+            "war dogs",
+            "warzone",
+            "historical documentary",
+            "cold war documentary",
+            "world war z",
+            "call of duty",
+            "modern warfare",
+            "battle cats",
+            "battle of the bands"
+          ],
+          "rules": [
+            {
+              "id": "non-real-media",
+              "description": "synthetische/entertainmentcontent is geen real-world event"
+            },
+            {
+              "id": "intent-not-event",
+              "description": "plannen, dreigen of proberen is niet hetzelfde als een uitgevoerd event"
+            }
+          ],
+          "semantic_rules": []
+        }
+      },
+      "platforms": {
+        "youtube": {
+          "enabled": true,
+          "limits": {
+            "max_age_hours": 24,
+            "max_duration_seconds": 90
+          },
+          "discovery": {
+            "mode": "automatic",
+            "queries": [
+              {
+                "q": "war",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 100
+              },
+              {
+                "q": "combat footage",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 98
+              },
+              {
+                "q": "war footage",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 96
+              },
+              {
+                "q": "battle footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 94
+              },
+              {
+                "q": "armed conflict",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 92
+              },
+              {
+                "q": "guerra",
+                "language": "es",
+                "region": "ES",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "guerra",
+                "language": "pt",
+                "region": "BR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "guerre",
+                "language": "fr",
+                "region": "FR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "Krieg",
+                "language": "de",
+                "region": "DE",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "oorlog",
+                "language": "nl",
+                "region": "NL",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "wojna",
+                "language": "pl",
+                "region": "PL",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "война",
+                "language": "ru",
+                "region": "RU",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "savaş",
+                "language": "tr",
+                "region": "TR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "حرب",
+                "language": "ar",
+                "region": "SA",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "perang",
+                "language": "id",
+                "region": "ID",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "युद्ध",
+                "language": "hi",
+                "region": "IN",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "যুদ্ধ",
+                "language": "bn",
+                "region": "BD",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "போர்",
+                "language": "ta",
+                "region": "IN",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "战争",
+                "language": "zh",
+                "region": "TW",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "戦争",
+                "language": "ja",
+                "region": "JP",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "전쟁",
+                "language": "ko",
+                "region": "KR",
+                "kind": "localized-core",
+                "weight": 100
+              }
+            ],
+            "query_budget_full": 21,
+            "notes": "V6 queries zijn platform-specifieke afgeleide discoverydata; semantische concepten blijven de bron van waarheid."
+          }
+        },
+        "telegram": {
+          "enabled": true,
+          "limits": {
+            "max_age_hours": 24,
+            "max_duration_seconds": 90
+          },
+          "discovery": {
+            "mode": "central-sources",
+            "notes": "Telegram sources worden centraal beheerd; dit profiel bepaalt semantiek en eligibility-limieten."
+          }
+        }
+      }
+    },
+    {
+      "schema_version": 6,
+      "id": "accident",
+      "name": "Accident",
+      "enabled": true,
+      "semantics": {
+        "intent": "real-world-event",
+        "canonical_concept": "accident",
+        "summary": "Genuine accidental events, including road and rail collisions, falls, workplace and construction incidents, machinery accidents and falling-object injuries. An actual accident must be evident.",
+        "concepts": [
+          {
+            "id": "accident",
+            "label": "Accident",
+            "relation": "canonical",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "accident",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "accidente",
+                "language": "es",
+                "region": "ES"
+              },
+              {
+                "text": "acidente",
+                "language": "pt",
+                "region": "BR"
+              },
+              {
+                "text": "accident",
+                "language": "fr",
+                "region": "FR"
+              },
+              {
+                "text": "Unfall",
+                "language": "de",
+                "region": "DE"
+              },
+              {
+                "text": "ongeval",
+                "language": "nl",
+                "region": "NL"
+              },
+              {
+                "text": "wypadek",
+                "language": "pl",
+                "region": "PL"
+              },
+              {
+                "text": "авария",
+                "language": "ru",
+                "region": "RU"
+              },
+              {
+                "text": "kaza",
+                "language": "tr",
+                "region": "TR"
+              },
+              {
+                "text": "حادث",
+                "language": "ar",
+                "region": "SA"
+              },
+              {
+                "text": "kecelakaan",
+                "language": "id",
+                "region": "ID"
+              },
+              {
+                "text": "दुर्घटना",
+                "language": "hi",
+                "region": "IN"
+              },
+              {
+                "text": "দুর্ঘটনা",
+                "language": "bn",
+                "region": "BD"
+              },
+              {
+                "text": "விபத்து",
+                "language": "ta",
+                "region": "IN"
+              },
+              {
+                "text": "事故",
+                "language": "zh",
+                "region": "TW"
+              },
+              {
+                "text": "事故",
+                "language": "ja",
+                "region": "JP"
+              },
+              {
+                "text": "사고",
+                "language": "ko",
+                "region": "KR"
+              }
+            ]
+          },
+          {
+            "id": "crash",
+            "label": "Crash",
+            "relation": "subtype",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "crash",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "choque",
+                "language": "es",
+                "region": "ES"
+              },
+              {
+                "text": "colisão",
+                "language": "pt",
+                "region": "BR"
+              },
+              {
+                "text": "collision",
+                "language": "fr",
+                "region": "FR"
+              },
+              {
+                "text": "Zusammenstoß",
+                "language": "de",
+                "region": "DE"
+              },
+              {
+                "text": "Kollision",
+                "language": "de",
+                "region": "DE"
+              },
+              {
+                "text": "botsing",
+                "language": "nl",
+                "region": "NL"
+              },
+              {
+                "text": "kolizja",
+                "language": "pl",
+                "region": "PL"
+              },
+              {
+                "text": "zderzenie",
+                "language": "pl",
+                "region": "PL"
+              },
+              {
+                "text": "столкновение",
+                "language": "ru",
+                "region": "RU"
+              },
+              {
+                "text": "çarpışma",
+                "language": "tr",
+                "region": "TR"
+              },
+              {
+                "text": "تصادم",
+                "language": "ar",
+                "region": "SA"
+              },
+              {
+                "text": "tabrakan",
+                "language": "id",
+                "region": "ID"
+              },
+              {
+                "text": "टक्कर",
+                "language": "hi",
+                "region": "IN"
+              },
+              {
+                "text": "সংঘর্ষ",
+                "language": "bn",
+                "region": "BD"
+              },
+              {
+                "text": "மோதல்",
+                "language": "ta",
+                "region": "IN"
+              },
+              {
+                "text": "碰撞",
+                "language": "zh",
+                "region": "TW"
+              },
+              {
+                "text": "衝突",
+                "language": "ja",
+                "region": "JP"
+              },
+              {
+                "text": "충돌",
+                "language": "ko",
+                "region": "KR"
+              }
+            ]
+          },
+          {
+            "id": "fall",
+            "label": "Fall accident",
+            "relation": "subtype",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "fall accident",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "accidental fall",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "workplace fall",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "workplace-accident",
+            "label": "Workplace accident",
+            "relation": "subtype",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "workplace accident",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "industrial accident",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "construction-site-accident",
+            "label": "Construction-site accident",
+            "relation": "subtype",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "construction site accident",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "construction accident",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "building site accident",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "machinery-accident",
+            "label": "Machinery accident",
+            "relation": "subtype",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "machinery accident",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "machine accident",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "industrial machinery accident",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "struck-by-object",
+            "label": "Struck-by-object accident",
+            "relation": "subtype",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "struck by falling object",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "falling object accident",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "struck by object accident",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "traffic-accident",
+            "label": "Road-traffic accidents",
+            "relation": "subtype",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "traffic collision",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "road accident",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "multi vehicle collision",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "motorcycle accident",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "truck collision",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "pedestrian struck by car",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "car overturns",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "rail-accident",
+            "label": "Rail and railway-crossing accidents",
+            "relation": "subtype",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "train collision",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "train accident",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "railway crossing accident",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "train derailment",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          }
+        ],
+        "noise": {
+          "phrases": [
+            "sound effect",
+            "sound effects",
+            "sfx",
+            "green screen",
+            "greenscreen",
+            "meme",
+            "meme template",
+            "gameplay",
+            "walkthrough",
+            "vfx",
+            "cgi",
+            "animation",
+            "animated",
+            "cartoon",
+            "simulation",
+            "simulator",
+            "movie scene",
+            "film scene",
+            "trailer",
+            "minecraft",
+            "fortnite",
+            "roblox",
+            "beamng",
+            "gaming",
+            "gta5",
+            "gta 5",
+            "gta v",
+            "grand theft auto",
+            "video game",
+            "after effects",
+            "premiere pro",
+            "tutorial",
+            "how to make",
+            "music video",
+            "official audio",
+            "lyrics",
+            "lyric video",
+            "karaoke",
+            "instrumental",
+            "full album",
+            "album",
+            "song",
+            "podcast",
+            "reaction video",
+            "reacts to",
+            "compilation",
+            "top 10",
+            "top ten",
+            "fails compilation",
+            "crash test",
+            "crash tests",
+            "crash testing",
+            "mega win",
+            "sensational win",
+            "ultimate win",
+            "jackpot win",
+            "slot game",
+            "slot machine game",
+            "casino gameplay",
+            "casino bonus"
+          ],
+          "rules": [
+            {
+              "id": "non-real-media",
+              "description": "synthetische/entertainmentcontent is geen real-world event"
+            },
+            {
+              "id": "intent-not-event",
+              "description": "plannen, dreigen of proberen is niet hetzelfde als een uitgevoerd event"
+            }
+          ],
+          "semantic_rules": []
+        }
+      },
+      "platforms": {
+        "youtube": {
+          "enabled": true,
+          "limits": {
+            "max_age_hours": 24,
+            "max_duration_seconds": 90
+          },
+          "discovery": {
+            "mode": "automatic",
+            "queries": [
+              {
+                "q": "accident caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 100
+              },
+              {
+                "q": "car crash caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 94
+              },
+              {
+                "q": "truck accident caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 90
+              },
+              {
+                "q": "train accident caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 89
+              },
+              {
+                "q": "construction site accident caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 95
+              },
+              {
+                "q": "fall from height accident footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 88
+              },
+              {
+                "q": "accidente",
+                "language": "es",
+                "region": "ES",
+                "kind": "localized-core",
+                "weight": 87
+              },
+              {
+                "q": "acidente",
+                "language": "pt",
+                "region": "BR",
+                "kind": "localized-core",
+                "weight": 87
+              },
+              {
+                "q": "accident",
+                "language": "fr",
+                "region": "FR",
+                "kind": "localized-core",
+                "weight": 87
+              },
+              {
+                "q": "Unfall",
+                "language": "de",
+                "region": "DE",
+                "kind": "localized-core",
+                "weight": 87
+              },
+              {
+                "q": "ongeval",
+                "language": "nl",
+                "region": "NL",
+                "kind": "localized-core",
+                "weight": 87
+              },
+              {
+                "q": "wypadek",
+                "language": "pl",
+                "region": "PL",
+                "kind": "localized-core",
+                "weight": 87
+              },
+              {
+                "q": "авария",
+                "language": "ru",
+                "region": "RU",
+                "kind": "localized-core",
+                "weight": 87
+              },
+              {
+                "q": "kaza",
+                "language": "tr",
+                "region": "TR",
+                "kind": "localized-core",
+                "weight": 87
+              },
+              {
+                "q": "حادث",
+                "language": "ar",
+                "region": "SA",
+                "kind": "localized-core",
+                "weight": 87
+              },
+              {
+                "q": "kecelakaan",
+                "language": "id",
+                "region": "ID",
+                "kind": "localized-core",
+                "weight": 87
+              },
+              {
+                "q": "दुर्घटना",
+                "language": "hi",
+                "region": "IN",
+                "kind": "localized-core",
+                "weight": 87
+              },
+              {
+                "q": "দুর্ঘটনা",
+                "language": "bn",
+                "region": "BD",
+                "kind": "localized-core",
+                "weight": 87
+              },
+              {
+                "q": "விபத்து",
+                "language": "ta",
+                "region": "IN",
+                "kind": "localized-core",
+                "weight": 87
+              },
+              {
+                "q": "事故",
+                "language": "zh",
+                "region": "TW",
+                "kind": "localized-core",
+                "weight": 87
+              },
+              {
+                "q": "事故",
+                "language": "ja",
+                "region": "JP",
+                "kind": "localized-core",
+                "weight": 87
+              },
+              {
+                "q": "사고",
+                "language": "ko",
+                "region": "KR",
+                "kind": "localized-core",
+                "weight": 87
+              },
+              {
+                "q": "accidente captado por cámara",
+                "language": "es",
+                "region": "ES",
+                "kind": "research",
+                "weight": 78
+              },
+              {
+                "q": "accidente de tráfico cámara",
+                "language": "es",
+                "region": "ES",
+                "kind": "research",
+                "weight": 78
+              },
+              {
+                "q": "road accident footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 88
+              },
+              {
+                "q": "car accident caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 87
+              },
+              {
+                "q": "motorcycle accident footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 86
+              },
+              {
+                "q": "workplace accident caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 85
+              },
+              {
+                "q": "construction site accident footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 84
+              },
+              {
+                "q": "industrial accident footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 83
+              },
+              {
+                "q": "factory accident footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 82
+              },
+              {
+                "q": "machinery accident caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 81
+              },
+              {
+                "q": "forklift accident footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 80
+              },
+              {
+                "q": "warehouse workplace accident",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 79
+              },
+              {
+                "q": "fall from height accident",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 78
+              },
+              {
+                "q": "slip and fall accident",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 77
+              },
+              {
+                "q": "falling object injury accident",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 76
+              },
+              {
+                "q": "pedestrian accident caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 75
+              },
+              {
+                "q": "railway crossing accident",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 74
+              },
+              {
+                "q": "train derailment caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 73
+              },
+              {
+                "q": "vehicle rollover accident",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 71
+              },
+              {
+                "q": "industrial worker accident",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 70
+              },
+              {
+                "q": "building site accident",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 69
+              },
+              {
+                "q": "train collision footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 68
+              }
+            ],
+            "query_budget_full": 44,
+            "notes": "Curated accident-event discovery only. CCTV, Instant Karma and Dashcam have separate standalone profiles. Query weights are editorial estimates, not live search-volume measurements."
+          }
+        },
+        "telegram": {
+          "enabled": true,
+          "limits": {
+            "max_age_hours": 24,
+            "max_duration_seconds": 90
+          },
+          "discovery": {
+            "mode": "central-sources",
+            "notes": "Telegram sources are centrally configured. This profile supplies shared accident semantics and its own age/duration limits."
+          }
+        }
+      }
+    },
+    {
+      "schema_version": 6,
+      "id": "cctv",
+      "name": "CCTV",
+      "enabled": true,
+      "semantics": {
+        "intent": "real-world-event",
+        "canonical_concept": "cctv",
+        "summary": "Authentic footage recorded by security or surveillance cameras, including shops, streets, public places and workplaces. Accidents are not required; camera hardware reviews and fictional recreations are outside this category.",
+        "concepts": [
+          {
+            "id": "cctv",
+            "label": "CCTV footage",
+            "relation": "canonical",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "CCTV",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "CCTV footage",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "CCTV camera footage",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "closed circuit television",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "videovigilancia",
+                "language": "es",
+                "region": "ES"
+              },
+              {
+                "text": "câmera de segurança",
+                "language": "pt",
+                "region": "BR"
+              },
+              {
+                "text": "vidéosurveillance",
+                "language": "fr",
+                "region": "FR"
+              },
+              {
+                "text": "Überwachungskamera",
+                "language": "de",
+                "region": "DE"
+              },
+              {
+                "text": "bewakingscamera",
+                "language": "nl",
+                "region": "NL"
+              },
+              {
+                "text": "monitoring wizyjny",
+                "language": "pl",
+                "region": "PL"
+              },
+              {
+                "text": "камера наблюдения",
+                "language": "ru",
+                "region": "RU"
+              },
+              {
+                "text": "güvenlik kamerası",
+                "language": "tr",
+                "region": "TR"
+              },
+              {
+                "text": "كاميرا مراقبة",
+                "language": "ar",
+                "region": "SA"
+              },
+              {
+                "text": "kamera pengawas",
+                "language": "id",
+                "region": "ID"
+              },
+              {
+                "text": "सीसीटीवी फुटेज",
+                "language": "hi",
+                "region": "IN"
+              },
+              {
+                "text": "সিসিটিভি ফুটেজ",
+                "language": "bn",
+                "region": "BD"
+              },
+              {
+                "text": "சிசிடிவி காட்சி",
+                "language": "ta",
+                "region": "IN"
+              },
+              {
+                "text": "监控视频",
+                "language": "zh",
+                "region": "TW"
+              },
+              {
+                "text": "防犯カメラ映像",
+                "language": "ja",
+                "region": "JP"
+              },
+              {
+                "text": "CCTV 영상",
+                "language": "ko",
+                "region": "KR"
+              }
+            ]
+          },
+          {
+            "id": "security-camera",
+            "label": "Security camera",
+            "relation": "equivalent",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "security camera footage",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "security camera video",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "security camera captures",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "surveillance camera footage",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "surveillance footage",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "caught on security camera",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "surveillance video",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "security footage",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "street-surveillance",
+            "label": "Street surveillance",
+            "relation": "subtype",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "street CCTV",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "traffic CCTV footage",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "shop security camera",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "store surveillance footage",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "workplace surveillance footage",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "doorbell security camera",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "caught-on-camera",
+            "label": "Caught on camera (unspecified)",
+            "relation": "broader",
+            "tier": "secondary",
+            "acceptance": "supporting",
+            "terms": [
+              {
+                "text": "caught on camera",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "camera footage",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "recorded on camera",
+                "language": "en",
+                "region": "US"
+              }
+            ],
+            "note": "A camera mention without a surveillance/security source does not establish CCTV."
+          }
+        ],
+        "noise": {
+          "phrases": [
+            "sound effect",
+            "sound effects",
+            "sfx",
+            "green screen",
+            "greenscreen",
+            "meme",
+            "meme template",
+            "gameplay",
+            "walkthrough",
+            "vfx",
+            "cgi",
+            "animation",
+            "animated",
+            "cartoon",
+            "simulation",
+            "simulator",
+            "movie scene",
+            "film scene",
+            "trailer",
+            "minecraft",
+            "fortnite",
+            "roblox",
+            "beamng",
+            "gaming",
+            "gta5",
+            "gta 5",
+            "gta v",
+            "grand theft auto",
+            "video game",
+            "after effects",
+            "premiere pro",
+            "tutorial",
+            "how to make",
+            "music video",
+            "official audio",
+            "lyrics",
+            "lyric video",
+            "karaoke",
+            "instrumental",
+            "full album",
+            "album",
+            "song",
+            "podcast",
+            "reaction video",
+            "reacts to",
+            "compilation",
+            "top 10",
+            "top ten",
+            "fails compilation",
+            "crash test",
+            "crash tests",
+            "crash testing",
+            "mega win",
+            "sensational win",
+            "ultimate win",
+            "jackpot win",
+            "slot game",
+            "slot machine game",
+            "casino gameplay",
+            "casino bonus",
+            "camera review",
+            "camera reviews",
+            "camera installation",
+            "security camera setup",
+            "buy cctv",
+            "cctv price",
+            "cctv kit",
+            "security camera unboxing"
+          ],
+          "rules": [
+            {
+              "id": "non-real-media",
+              "description": "synthetische/entertainmentcontent is geen real-world event"
+            },
+            {
+              "id": "intent-not-event",
+              "description": "plannen, dreigen of proberen is niet hetzelfde als een uitgevoerd event"
+            }
+          ],
+          "semantic_rules": []
+        }
+      },
+      "platforms": {
+        "youtube": {
+          "enabled": true,
+          "limits": {
+            "max_age_hours": 24,
+            "max_duration_seconds": 90
+          },
+          "discovery": {
+            "mode": "automatic",
+            "queries": [
+              {
+                "q": "CCTV footage",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 100
+              },
+              {
+                "q": "CCTV caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 98
+              },
+              {
+                "q": "real CCTV footage",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 96
+              },
+              {
+                "q": "security camera footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 94
+              },
+              {
+                "q": "surveillance camera footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 92
+              },
+              {
+                "q": "security footage caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 90
+              },
+              {
+                "q": "CCTV street footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 88
+              },
+              {
+                "q": "store surveillance footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 86
+              },
+              {
+                "q": "shop CCTV caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 84
+              },
+              {
+                "q": "workplace CCTV footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 82
+              },
+              {
+                "q": "public CCTV footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 80
+              },
+              {
+                "q": "doorbell security camera footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 78
+              },
+              {
+                "q": "street security camera footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 76
+              },
+              {
+                "q": "CCTV incident footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 74
+              },
+              {
+                "q": "security camera captures incident",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 72
+              },
+              {
+                "q": "viral CCTV footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 70
+              },
+              {
+                "q": "videovigilancia",
+                "language": "es",
+                "region": "ES",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "câmera de segurança",
+                "language": "pt",
+                "region": "BR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "vidéosurveillance",
+                "language": "fr",
+                "region": "FR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "Überwachungskamera",
+                "language": "de",
+                "region": "DE",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "bewakingscamera",
+                "language": "nl",
+                "region": "NL",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "monitoring wizyjny",
+                "language": "pl",
+                "region": "PL",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "камера наблюдения",
+                "language": "ru",
+                "region": "RU",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "güvenlik kamerası",
+                "language": "tr",
+                "region": "TR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "كاميرا مراقبة",
+                "language": "ar",
+                "region": "SA",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "kamera pengawas",
+                "language": "id",
+                "region": "ID",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "सीसीटीवी फुटेज",
+                "language": "hi",
+                "region": "IN",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "সিসিটিভি ফুটেজ",
+                "language": "bn",
+                "region": "BD",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "சிசிடிவி காட்சி",
+                "language": "ta",
+                "region": "IN",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "监控视频",
+                "language": "zh",
+                "region": "TW",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "防犯カメラ映像",
+                "language": "ja",
+                "region": "JP",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "CCTV 영상",
+                "language": "ko",
+                "region": "KR",
+                "kind": "localized-core",
+                "weight": 100
+              }
+            ],
+            "query_budget_full": 32,
+            "notes": "V6 queries zijn platform-specifieke afgeleide discoverydata; semantische concepten blijven de bron van waarheid."
+          }
+        },
+        "telegram": {
+          "enabled": true,
+          "limits": {
+            "max_age_hours": 24,
+            "max_duration_seconds": 90
+          },
+          "discovery": {
+            "mode": "central-sources",
+            "notes": "Telegram sources are centrally configured. This standalone profile uses its own category semantics and age/duration limits."
+          }
+        }
+      }
+    },
+    {
+      "schema_version": 6,
+      "id": "instant-karma",
+      "name": "Instant Karma",
+      "enabled": true,
+      "semantics": {
+        "intent": "real-world-event",
+        "canonical_concept": "instant-karma",
+        "summary": "Authentic, immediate consequences of a person’s own action, such as instant regret, payback or poetic justice. This category does not require a crash or accident and is not a general CCTV or dashcam category.",
+        "concepts": [
+          {
+            "id": "instant-karma",
+            "label": "Instant karma",
+            "relation": "canonical",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "instant karma",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "instant karma caught on camera",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "karma hits instantly",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "karma instantáneo",
+                "language": "es",
+                "region": "ES"
+              },
+              {
+                "text": "karma instantâneo",
+                "language": "pt",
+                "region": "BR"
+              },
+              {
+                "text": "karma immédiat",
+                "language": "fr",
+                "region": "FR"
+              },
+              {
+                "text": "sofortiges Karma",
+                "language": "de",
+                "region": "DE"
+              },
+              {
+                "text": "direct karma",
+                "language": "nl",
+                "region": "NL"
+              },
+              {
+                "text": "karma natychmiast",
+                "language": "pl",
+                "region": "PL"
+              },
+              {
+                "text": "мгновенная карма",
+                "language": "ru",
+                "region": "RU"
+              },
+              {
+                "text": "anında karma",
+                "language": "tr",
+                "region": "TR"
+              },
+              {
+                "text": "كارما فورية",
+                "language": "ar",
+                "region": "SA"
+              },
+              {
+                "text": "karma instan",
+                "language": "id",
+                "region": "ID"
+              }
+            ]
+          },
+          {
+            "id": "instant-regret",
+            "label": "Instant regret",
+            "relation": "equivalent",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "instant regret",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "immediate regret",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "regretted it instantly",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "instantly regrets it",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "instant-payback",
+            "label": "Instant payback",
+            "relation": "related",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "instant payback",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "instant justice",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "immediate consequences",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "karma strikes back",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "karma strikes immediately",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "generic-karma",
+            "label": "Karma alone",
+            "relation": "broader",
+            "tier": "secondary",
+            "acceptance": "supporting",
+            "terms": [
+              {
+                "text": "karma",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "payback",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "poetic justice",
+                "language": "en",
+                "region": "US"
+              }
+            ],
+            "note": "Generic karma/revenge discussion is not independently sufficient."
+          }
+        ],
+        "noise": {
+          "phrases": [
+            "sound effect",
+            "sound effects",
+            "sfx",
+            "green screen",
+            "greenscreen",
+            "meme",
+            "meme template",
+            "gameplay",
+            "walkthrough",
+            "vfx",
+            "cgi",
+            "animation",
+            "animated",
+            "cartoon",
+            "simulation",
+            "simulator",
+            "movie scene",
+            "film scene",
+            "trailer",
+            "minecraft",
+            "fortnite",
+            "roblox",
+            "beamng",
+            "gaming",
+            "gta5",
+            "gta 5",
+            "gta v",
+            "grand theft auto",
+            "video game",
+            "after effects",
+            "premiere pro",
+            "tutorial",
+            "how to make",
+            "music video",
+            "official audio",
+            "lyrics",
+            "lyric video",
+            "karaoke",
+            "instrumental",
+            "full album",
+            "album",
+            "song",
+            "podcast",
+            "reaction video",
+            "reacts to",
+            "compilation",
+            "top 10",
+            "top ten",
+            "fails compilation",
+            "crash test",
+            "crash tests",
+            "crash testing",
+            "mega win",
+            "sensational win",
+            "ultimate win",
+            "jackpot win",
+            "slot game",
+            "slot machine game",
+            "casino gameplay",
+            "casino bonus",
+            "karma yoga",
+            "karma meditation",
+            "karma astrology",
+            "karma reading",
+            "karma song",
+            "karma lyrics"
+          ],
+          "rules": [
+            {
+              "id": "non-real-media",
+              "description": "synthetische/entertainmentcontent is geen real-world event"
+            },
+            {
+              "id": "intent-not-event",
+              "description": "plannen, dreigen of proberen is niet hetzelfde als een uitgevoerd event"
+            }
+          ],
+          "semantic_rules": []
+        }
+      },
+      "platforms": {
+        "youtube": {
+          "enabled": true,
+          "limits": {
+            "max_age_hours": 24,
+            "max_duration_seconds": 90
+          },
+          "discovery": {
+            "mode": "automatic",
+            "queries": [
+              {
+                "q": "instant karma",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 100
+              },
+              {
+                "q": "instant karma caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 98
+              },
+              {
+                "q": "instant karma moments",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 96
+              },
+              {
+                "q": "instant karma real life",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 94
+              },
+              {
+                "q": "instant karma fails",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 92
+              },
+              {
+                "q": "instant regret caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 90
+              },
+              {
+                "q": "instant regret moment",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 88
+              },
+              {
+                "q": "instant karma road rage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 86
+              },
+              {
+                "q": "instant karma bad drivers",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 84
+              },
+              {
+                "q": "instant karma parking",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 82
+              },
+              {
+                "q": "instant karma thief",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 80
+              },
+              {
+                "q": "instant karma bully",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 78
+              },
+              {
+                "q": "instant payback caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 76
+              },
+              {
+                "q": "instant justice caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 74
+              },
+              {
+                "q": "immediate consequences caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 72
+              },
+              {
+                "q": "karma strikes back real life",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 70
+              },
+              {
+                "q": "karma instantáneo",
+                "language": "es",
+                "region": "ES",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "karma instantâneo",
+                "language": "pt",
+                "region": "BR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "karma immédiat",
+                "language": "fr",
+                "region": "FR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "sofortiges Karma",
+                "language": "de",
+                "region": "DE",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "direct karma",
+                "language": "nl",
+                "region": "NL",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "karma natychmiast",
+                "language": "pl",
+                "region": "PL",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "мгновенная карма",
+                "language": "ru",
+                "region": "RU",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "anında karma",
+                "language": "tr",
+                "region": "TR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "كارما فورية",
+                "language": "ar",
+                "region": "SA",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "karma instan",
+                "language": "id",
+                "region": "ID",
+                "kind": "localized-core",
+                "weight": 100
+              }
+            ],
+            "query_budget_full": 26,
+            "notes": "V6 queries zijn platform-specifieke afgeleide discoverydata; semantische concepten blijven de bron van waarheid."
+          }
+        },
+        "telegram": {
+          "enabled": true,
+          "limits": {
+            "max_age_hours": 24,
+            "max_duration_seconds": 90
+          },
+          "discovery": {
+            "mode": "central-sources",
+            "notes": "Telegram sources are centrally configured. This standalone profile uses its own category semantics and age/duration limits."
+          }
+        }
+      }
+    },
+    {
+      "schema_version": 6,
+      "id": "dashcam",
+      "name": "Dashcam",
+      "enabled": true,
+      "semantics": {
+        "intent": "real-world-event",
+        "canonical_concept": "dashcam",
+        "summary": "Authentic footage captured by vehicle dashboard or windscreen cameras, including driving incidents, close calls, unusual road events and road rage. A crash is not required; driving simulators and product reviews do not qualify.",
+        "concepts": [
+          {
+            "id": "dashcam",
+            "label": "Dashcam footage",
+            "relation": "canonical",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "dashcam",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "dash cam",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "dash camera",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "dashcam footage",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "cámara de salpicadero",
+                "language": "es",
+                "region": "ES"
+              },
+              {
+                "text": "câmera veicular",
+                "language": "pt",
+                "region": "BR"
+              },
+              {
+                "text": "caméra embarquée",
+                "language": "fr",
+                "region": "FR"
+              },
+              {
+                "text": "Dashcam Aufnahme",
+                "language": "de",
+                "region": "DE"
+              },
+              {
+                "text": "dashcam beelden",
+                "language": "nl",
+                "region": "NL"
+              },
+              {
+                "text": "wideorejestrator",
+                "language": "pl",
+                "region": "PL"
+              },
+              {
+                "text": "видеорегистратор",
+                "language": "ru",
+                "region": "RU"
+              },
+              {
+                "text": "araç kamerası",
+                "language": "tr",
+                "region": "TR"
+              },
+              {
+                "text": "كاميرا السيارة",
+                "language": "ar",
+                "region": "SA"
+              },
+              {
+                "text": "kamera dasbor",
+                "language": "id",
+                "region": "ID"
+              },
+              {
+                "text": "डैशकैम वीडियो",
+                "language": "hi",
+                "region": "IN"
+              },
+              {
+                "text": "ড্যাশক্যাম ফুটেজ",
+                "language": "bn",
+                "region": "BD"
+              },
+              {
+                "text": "டாஷ்கேம் வீடியோ",
+                "language": "ta",
+                "region": "IN"
+              },
+              {
+                "text": "行车记录仪",
+                "language": "zh",
+                "region": "TW"
+              },
+              {
+                "text": "ドライブレコーダー",
+                "language": "ja",
+                "region": "JP"
+              },
+              {
+                "text": "블랙박스 영상",
+                "language": "ko",
+                "region": "KR"
+              }
+            ]
+          },
+          {
+            "id": "dashboard-camera",
+            "label": "Dashboard camera",
+            "relation": "equivalent",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "dashboard camera footage",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "vehicle camera footage",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "windscreen camera footage",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "car dashcam video",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "truck dashcam video",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "motorcycle dashcam video",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "dashcam-events",
+            "label": "Dashcam road footage",
+            "relation": "subtype",
+            "tier": "strong",
+            "acceptance": "strong",
+            "terms": [
+              {
+                "text": "dashcam close call",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "dashcam road rage",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "dashcam near miss",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "dashcam bad drivers",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "dashcam unusual road event",
+                "language": "en",
+                "region": "US"
+              }
+            ]
+          },
+          {
+            "id": "driving-footage",
+            "label": "Driving footage (camera unspecified)",
+            "relation": "broader",
+            "tier": "secondary",
+            "acceptance": "supporting",
+            "terms": [
+              {
+                "text": "driving footage",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "caught on the road",
+                "language": "en",
+                "region": "US"
+              },
+              {
+                "text": "road footage",
+                "language": "en",
+                "region": "US"
+              }
+            ],
+            "note": "General driving footage is not necessarily captured by a dashcam."
+          }
+        ],
+        "noise": {
+          "phrases": [
+            "sound effect",
+            "sound effects",
+            "sfx",
+            "green screen",
+            "greenscreen",
+            "meme",
+            "meme template",
+            "gameplay",
+            "walkthrough",
+            "vfx",
+            "cgi",
+            "animation",
+            "animated",
+            "cartoon",
+            "simulation",
+            "simulator",
+            "movie scene",
+            "film scene",
+            "trailer",
+            "minecraft",
+            "fortnite",
+            "roblox",
+            "beamng",
+            "gaming",
+            "gta5",
+            "gta 5",
+            "gta v",
+            "grand theft auto",
+            "video game",
+            "after effects",
+            "premiere pro",
+            "tutorial",
+            "how to make",
+            "music video",
+            "official audio",
+            "lyrics",
+            "lyric video",
+            "karaoke",
+            "instrumental",
+            "full album",
+            "album",
+            "song",
+            "podcast",
+            "reaction video",
+            "reacts to",
+            "compilation",
+            "top 10",
+            "top ten",
+            "fails compilation",
+            "crash test",
+            "crash tests",
+            "crash testing",
+            "mega win",
+            "sensational win",
+            "ultimate win",
+            "jackpot win",
+            "slot game",
+            "slot machine game",
+            "casino gameplay",
+            "casino bonus",
+            "dashcam review",
+            "dash cam review",
+            "dashcam test",
+            "best dashcam",
+            "dashcam unboxing",
+            "dashcam installation",
+            "install dashcam",
+            "dashcam setup"
+          ],
+          "rules": [
+            {
+              "id": "non-real-media",
+              "description": "synthetische/entertainmentcontent is geen real-world event"
+            },
+            {
+              "id": "intent-not-event",
+              "description": "plannen, dreigen of proberen is niet hetzelfde als een uitgevoerd event"
+            }
+          ],
+          "semantic_rules": []
+        }
+      },
+      "platforms": {
+        "youtube": {
+          "enabled": true,
+          "limits": {
+            "max_age_hours": 24,
+            "max_duration_seconds": 90
+          },
+          "discovery": {
+            "mode": "automatic",
+            "queries": [
+              {
+                "q": "dashcam footage",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 100
+              },
+              {
+                "q": "real dashcam footage",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 98
+              },
+              {
+                "q": "dash cam caught on camera",
+                "language": "en",
+                "region": "US",
+                "kind": "core",
+                "weight": 96
+              },
+              {
+                "q": "dashcam road rage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 94
+              },
+              {
+                "q": "dashcam close call",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 92
+              },
+              {
+                "q": "dashcam near miss",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 90
+              },
+              {
+                "q": "dashcam bad drivers",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 88
+              },
+              {
+                "q": "dashcam incident",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 86
+              },
+              {
+                "q": "dashcam driving footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 84
+              },
+              {
+                "q": "truck dashcam footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 82
+              },
+              {
+                "q": "car dashcam video",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 80
+              },
+              {
+                "q": "motorcycle dashcam footage",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 78
+              },
+              {
+                "q": "dashcam unusual road events",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 76
+              },
+              {
+                "q": "dashcam pedestrian close call",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 74
+              },
+              {
+                "q": "dashcam dangerous driving",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 72
+              },
+              {
+                "q": "dashcam accident",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 70
+              },
+              {
+                "q": "dashcam crash",
+                "language": "en",
+                "region": "US",
+                "kind": "scenario",
+                "weight": 68
+              },
+              {
+                "q": "cámara de salpicadero",
+                "language": "es",
+                "region": "ES",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "câmera veicular",
+                "language": "pt",
+                "region": "BR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "caméra embarquée",
+                "language": "fr",
+                "region": "FR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "Dashcam Aufnahme",
+                "language": "de",
+                "region": "DE",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "dashcam beelden",
+                "language": "nl",
+                "region": "NL",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "wideorejestrator",
+                "language": "pl",
+                "region": "PL",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "видеорегистратор",
+                "language": "ru",
+                "region": "RU",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "araç kamerası",
+                "language": "tr",
+                "region": "TR",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "كاميرا السيارة",
+                "language": "ar",
+                "region": "SA",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "kamera dasbor",
+                "language": "id",
+                "region": "ID",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "डैशकैम वीडियो",
+                "language": "hi",
+                "region": "IN",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "ড্যাশক্যাম ফুটেজ",
+                "language": "bn",
+                "region": "BD",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "டாஷ்கேம் வீடியோ",
+                "language": "ta",
+                "region": "IN",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "行车记录仪",
+                "language": "zh",
+                "region": "TW",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "ドライブレコーダー",
+                "language": "ja",
+                "region": "JP",
+                "kind": "localized-core",
+                "weight": 100
+              },
+              {
+                "q": "블랙박스 영상",
+                "language": "ko",
+                "region": "KR",
+                "kind": "localized-core",
+                "weight": 100
+              }
+            ],
+            "query_budget_full": 33,
+            "notes": "V6 queries zijn platform-specifieke afgeleide discoverydata; semantische concepten blijven de bron van waarheid."
+          }
+        },
+        "telegram": {
+          "enabled": true,
+          "limits": {
+            "max_age_hours": 24,
+            "max_duration_seconds": 90
+          },
+          "discovery": {
+            "mode": "central-sources",
+            "notes": "Telegram sources are centrally configured. This standalone profile uses its own category semantics and age/duration limits."
+          }
+        }
+      }
+    }
+  ]
+}

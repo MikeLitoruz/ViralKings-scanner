@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "type": "public",
+      "username": "kaotic_com_videos_liveleak"
+    },
+    {
+      "type": "public",
+      "username": "leaklive"
+    },
+    {
+      "type": "public",
+      "username": "zhestnovosty"
+    },
+    {
+      "type": "public",
+      "username": "che_wtf"
+    },
+    {
+      "type": "public",
+      "username": "AccidentOnRoad"
+    },
+    {
+      "type": "public",
+      "username": "DashCamUA"
+    },
+    {
+      "type": "public",
+      "username": "horror_footage"
+    },
+    {
+      "type": "public",
+      "username": "inteladmin3"
+    },
+    {
+      "type": "public",
+      "username": "leak_video_hard_boxing"
+    },
+    {
+      "type": "public",
+      "username": "onlyfighting"
+    },
+    {
+      "type": "public",
+      "username": "traffictv"
+    },
+    {
+      "type": "public",
+      "username": "km_ap"
+    }
+  ],
+  "limitPerSource": 100
+}
