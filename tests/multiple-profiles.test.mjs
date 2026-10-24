@@ -20,5 +20,5 @@ test('separate per-profile runs and filters',()=>{
 test('cancel and explicit empty selection',()=>{
  assert.match(app,/if\(!profiles.length\)throw new Error/);
  assert.match(app,/if\(controller.signal.aborted\)break/);
- assert.match(app,/state\.selected=new Set/);
+ assert.match(app,/selected:new Set\(\)/);
 });
