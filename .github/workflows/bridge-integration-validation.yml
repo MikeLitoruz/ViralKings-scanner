@@ -1,0 +1,25 @@
+name: Validate manual Windows bridge integration UI
+on:
+  push:
+    branches: [feature/manual-onedrive-desktop-bridge]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax and tests
+        run: |
+          node --check src/app.js
+          node --check service-worker.js
+          node --test tests/*.test.mjs
+      - name: Manual bridge UI contracts
+        run: |
+          grep -q 'export-runs' index.html
+          grep -q 'import-windows-status' index.html
+          grep -q 'mobile-runs-' src/app.js
+          grep -q 'schema:1,origin:' src/app.js
