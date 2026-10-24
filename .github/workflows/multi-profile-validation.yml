@@ -1,0 +1,21 @@
+name: Validate multi-profile mobile UI
+on:
+  push:
+    branches: [feature/mobile-multi-profile]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax and profile contract checks
+        run: |
+          node --check src/app.js
+          node --check src/telegram-core.js
+          node --check src/youtube.js
+          node --check service-worker.js
+          node --test tests/multiple-profiles.test.mjs
