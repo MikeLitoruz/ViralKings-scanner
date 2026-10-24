@@ -1,0 +1,39 @@
+name: Build and test secure Telegram client
+on:
+  push:
+    branches: [secure-telegram-vault]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned dependencies
+        working-directory: telegram-build
+        run: npm install --no-audit --no-fund
+      - name: Build mtcute with exported MemoryStorage
+        working-directory: telegram-build
+        run: npm run build
+      - name: Verify export and source syntax
+        run: |
+          node --check src/telegram-auth-browser.js
+          node --test tests/telegram-vault.test.mjs
+          test -s src/vendor/mtcute-client.js
+          grep -q 'MemoryStorage' src/vendor/mtcute-client.js
+      - name: Package tested GitHub Pages site
+        uses: actions/upload-artifact@v4
+        with:
+          name: viral-scanner-secure-site
+          path: |
+            index.html
+            mobile.css
+            manifest.webmanifest
+            service-worker.js
+            shared/**
+            src/**
+          if-no-files-found: error
