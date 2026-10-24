@@ -41,6 +41,11 @@ export function mapTelegramMessage(message,source,chat,profile,now=Date.now()){
  const sourceKey=source.type==='private'?`id:${source.id}`:`public:${source.username.toLowerCase()}`;
  return {Profile:profile.name,ProfileId:profile.id,Platform:'Telegram',VideoId:`tg:${channelId}:${messageId}`,URL:username?`https://t.me/${username}/${messageId}`:`https://t.me/c/${channelId}/${messageId}`,Title:title,Description:body,PublishedAt:new Date(stamp).toISOString(),AgeHours:+age.toFixed(2),DurationSeconds:video.durationSeconds,Views:views,VelocityPerHour:speed==null?null:+speed.toFixed(2),ViewsPerHour:speed==null?null:+speed.toFixed(2),TelegramForwards:num(message.forwards),TelegramComments:num(message.replies?.count??message.replies),TelegramReactions:reactionCount(message.reactions),TelegramChannelId:channelId,TelegramUsername:username,TelegramMessageId:messageId,TelegramSourceType:source.type,TelegramSourceKey:sourceKey,TelegramMimeType:video.mimeType,TelegramFileName:video.filename,TelegramFileSize:video.bytes,ChannelName:str(chat?.title||source.title||username),Relevance:assessment.relevance,RelevanceReason:captionless?'No caption; manual verification required':assessment.reason,ResultStatus:'UNCERTAIN',SuggestedPopularity:'NONE',MobileUnverified:true,Qualified:false,Accepted:false,MobileEligibility:true,DiscoverySource:'TELEGRAM_MTCUTE_BROWSER',QueryHitCount:1,TelegramSyntheticTitle:captionless};
 }
+async function thumbnailData(client,video){
+ const thumb=video?.thumbnails?.filter(x=>!x.isVideo&&Number.isFinite(x.fileSize)&&x.fileSize>0&&x.fileSize<=120000).sort((a,b)=>b.width*b.height-a.width*a.height)[0];
+ if(!thumb||typeof client.downloadAsBuffer!=='function')return '';
+ try{const bytes=await client.downloadAsBuffer(thumb);if(!bytes?.length||bytes.length>120000)return '';let binary='';for(const b of bytes)binary+=String.fromCharCode(b);return 'data:image/jpeg;base64,'+btoa(binary);}catch{return '';}
+}
 export async function discoverTelegram({client,profile,sources,limitPerSource=80,signal,onProgress=()=>{},now=Date.now()}){
  if(!client||typeof client.iterHistory!=='function'||typeof client.getChat!=='function')throw Error('Telegram is not connected.');
  const selected=sanitizeTelegramSources(sources),found=new Map(),failures=[];
@@ -54,7 +59,7 @@ export async function discoverTelegram({client,profile,sources,limitPerSource=80
    for await(const message of client.iterHistory(chat.id,{limit})){
     if(signal?.aborted)throw new DOMException('Search cancelled','AbortError');
     const stamp=dateMs(message.date);if(Number.isFinite(stamp)&&now-stamp>(num(profile?.platforms?.telegram?.limits?.max_age_hours)??24)*3600000)break;
-    const row=mapTelegramMessage(message,source,chat,profile,now);if(row)found.set(row.VideoId,row);
+    const row=mapTelegramMessage(message,source,chat,profile,now);if(row){row.ThumbnailUrl=await thumbnailData(client,message.media);found.set(row.VideoId,row);}
    }
   }catch(e){if(signal?.aborted)throw e;failures.push({source:source.type==='private'?(source.title||source.id):'@'+source.username,error:String(e?.message||e).slice(0,250)});}
   onProgress({completed:index+1,total:selected.length,candidates:found.size,source:source.type==='private'?(source.title||source.id):'@'+source.username,failures:failures.length});

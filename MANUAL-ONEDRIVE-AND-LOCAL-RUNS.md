@@ -1,0 +1,6 @@
+# Local results and manual OneDrive transfer
+Search runs are saved to private browser IndexedDB (separate from the encrypted Telegram session), and are restored after page reload. Browser data removal will also remove locally stored runs. Telegram thumbnail previews are read from the MTProto client where an eligible small JPEG thumbnail is available and saved with the run for offline display. Not all Telegram videos have thumbnails; the app shows a placeholder for those. These thumbnails are part of the local run record and may be sensitive on a shared device.
+
+If the OneDrive API is not connected, **Save queue (OneDrive or file)** creates a JSON queue file using the iOS share sheet when supported or a regular download otherwise. Save the file into the OneDrive Queue folder that your Windows worker actually watches. This is a manual transfer, not automatic OneDrive synchronization. This change does not configure the Windows bridge or create the destination folder. Automatic synchronization still needs OAuth or a separate upload service.
+
+No Microsoft Azure subscription or Entra application ID is required for the manual workflow.
