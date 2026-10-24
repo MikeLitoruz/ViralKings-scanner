@@ -47324,6 +47324,137 @@ class Yy {
     return this._save?.();
   }
 }
+class zy {
+  states = /* @__PURE__ */ new Map();
+  getState(e, i) {
+    return this.states.has(e) || this.states.set(e, i()), this.states.get(e);
+  }
+  load() {
+  }
+}
+class Xy {
+  constructor(e) {
+    this._driver = e, this.state = this._driver.getState("authKeys", () => ({
+      authKeys: /* @__PURE__ */ new Map(),
+      authKeysTemp: /* @__PURE__ */ new Map(),
+      authKeysTempExpiry: /* @__PURE__ */ new Map()
+    }));
+  }
+  state;
+  set(e, i) {
+    i ? this.state.authKeys.set(e, i) : this.state.authKeys.delete(e);
+  }
+  get(e) {
+    return this.state.authKeys.get(e) ?? null;
+  }
+  setTemp(e, i, s, o) {
+    const r = `${e}:${i}`;
+    s ? (this.state.authKeysTemp.set(r, s), this.state.authKeysTempExpiry.set(r, o)) : (this.state.authKeysTemp.delete(r), this.state.authKeysTempExpiry.delete(r));
+  }
+  getTemp(e, i, s) {
+    const o = `${e}:${i}`;
+    return s > (this.state.authKeysTempExpiry.get(o) ?? 0) ? null : this.state.authKeysTemp.get(o) ?? null;
+  }
+  deleteByDc(e) {
+    this.state.authKeys.delete(e);
+    for (const i of this.state.authKeysTemp.keys())
+      i.startsWith(`${e}:`) && (this.state.authKeysTemp.delete(i), this.state.authKeysTempExpiry.delete(i));
+  }
+  deleteAll() {
+    this.state.authKeys.clear(), this.state.authKeysTemp.clear(), this.state.authKeysTempExpiry.clear();
+  }
+}
+class $y {
+  constructor(e) {
+    this._driver = e, this.state = this._driver.getState("kv", () => /* @__PURE__ */ new Map());
+  }
+  state;
+  set(e, i) {
+    this.state.set(e, i);
+  }
+  get(e) {
+    return this.state.get(e) ?? null;
+  }
+  delete(e) {
+    this.state.delete(e);
+  }
+  deleteAll() {
+    this.state.clear();
+  }
+}
+class t1 {
+  constructor(e) {
+    this._driver = e, this.state = this._driver.getState("peers", () => ({
+      entities: /* @__PURE__ */ new Map(),
+      usernameIndex: /* @__PURE__ */ new Map(),
+      phoneIndex: /* @__PURE__ */ new Map()
+    }));
+  }
+  state;
+  store(e) {
+    const i = this.state.entities.get(e.id);
+    if (i && (i.usernames.forEach((s) => {
+      this.state.usernameIndex.delete(s);
+    }), i.phone && this.state.phoneIndex.delete(i.phone)), e.usernames)
+      for (const s of e.usernames)
+        this.state.usernameIndex.set(s, e.id);
+    e.phone && this.state.phoneIndex.set(e.phone, e.id), this.state.entities.set(e.id, e);
+  }
+  getById(e) {
+    const i = this.state.entities.get(e);
+    return i || null;
+  }
+  getByUsername(e) {
+    const i = this.state.usernameIndex.get(e.toLowerCase());
+    if (!i) return null;
+    const s = this.state.entities.get(i);
+    return !s || s.isMin ? null : s;
+  }
+  getByPhone(e) {
+    const i = this.state.phoneIndex.get(e);
+    if (!i) return null;
+    const s = this.state.entities.get(i);
+    return !s || s.isMin ? null : s;
+  }
+  deleteAll() {
+    this.state.entities.clear(), this.state.phoneIndex.clear(), this.state.usernameIndex.clear();
+  }
+}
+class e1 {
+  constructor(e) {
+    this._driver = e, this.state = this._driver.getState("refMessages", () => ({
+      refs: /* @__PURE__ */ new Map()
+    }));
+  }
+  state;
+  store(e, i, s) {
+    this.state.refs.has(e) || this.state.refs.set(e, /* @__PURE__ */ new Set()), this.state.refs.get(e).add(`${i}:${s}`);
+  }
+  getByPeer(e) {
+    const i = this.state.refs.get(e);
+    if (!i?.size) return null;
+    const [s] = i, [o, r] = s.split(":");
+    return [Number(o), Number(r)];
+  }
+  delete(e, i) {
+    for (const s of this.state.refs.values())
+      for (const o of i)
+        s.delete(`${e}:${o}`);
+  }
+  deleteByPeer(e) {
+    this.state.refs.delete(e);
+  }
+  deleteAll() {
+    this.state.refs.clear();
+  }
+}
+class F1 {
+  driver = new zy();
+  kv = new $y(this.driver);
+  authKeys = new Xy(this.driver);
+  peers = new t1(this.driver);
+  refMessages = new e1(this.driver);
+}
 function wi(t) {
   return new Promise((e, i) => {
     t.oncomplete = () => e(), t.onerror = () => i(t.error ?? new Error("IDB transaction was aborted"));
@@ -47335,7 +47466,7 @@ function Qt(t) {
   });
 }
 const Wo = "__version:", Zo = 2e12;
-class zy extends Yy {
+class i1 extends Yy {
   constructor(e) {
     if (super(), this._dbName = e, typeof indexedDB > "u")
       throw new zt("IndexedDB is not available");
@@ -47431,7 +47562,7 @@ class zy extends Yy {
   }
 }
 const je = "authKeys", Te = "tempAuthKeys";
-class Xy {
+class n1 {
   constructor(e) {
     this._driver = e, e.registerMigration(je, 1, (i) => {
       i.createObjectStore(je, { keyPath: "dc" }), i.createObjectStore(Te, { keyPath: ["dc", "idx"] });
@@ -47477,7 +47608,7 @@ class Xy {
   }
 }
 const Ei = "kv";
-class $y {
+class s1 {
   constructor(e) {
     this._driver = e, e.registerMigration(Ei, 1, (i) => {
       i.createObjectStore(Ei, { keyPath: "key" });
@@ -47501,7 +47632,7 @@ class $y {
   }
 }
 const Qi = "peers";
-class t1 {
+class o1 {
   constructor(e) {
     this._driver = e, e.registerMigration(Qi, 1, (i) => {
       const s = i.createObjectStore(Qi, { keyPath: "id" });
@@ -47533,7 +47664,7 @@ class t1 {
   }
 }
 const ve = "messageRefs";
-class e1 {
+class r1 {
   constructor(e) {
     this._driver = e, e.registerMigration(ve, 1, (i) => {
       const s = i.createObjectStore(ve, { keyPath: ["peerId", "chatId", "msgId"] });
@@ -47573,7 +47704,7 @@ class e1 {
 }
 class Yo {
   constructor(e) {
-    this.dbName = e, this.driver = new zy(this.dbName), this.kv = new $y(this.driver), this.authKeys = new Xy(this.driver), this.peers = new t1(this.driver), this.refMessages = new e1(this.driver);
+    this.dbName = e, this.driver = new i1(this.dbName), this.kv = new s1(this.driver), this.authKeys = new n1(this.driver), this.peers = new o1(this.driver), this.refMessages = new r1(this.driver);
   }
   driver;
   kv;
@@ -47581,7 +47712,7 @@ class Yo {
   peers;
   refMessages;
 }
-const i1 = "%s [%c%s%c] [%c%s%c] ", n1 = [
+const a1 = "%s [%c%s%c] [%c%s%c] ", c1 = [
   "",
   // OFF
   "ERR",
@@ -47589,7 +47720,7 @@ const i1 = "%s [%c%s%c] [%c%s%c] ", n1 = [
   "INF",
   "DBG",
   "VRB"
-], s1 = [
+], u1 = [
   "",
   // OFF
   "color: #7a5f9d",
@@ -47597,28 +47728,28 @@ const i1 = "%s [%c%s%c] [%c%s%c] ", n1 = [
   "color: #396c9e",
   "color: #437761",
   "color: #7a5f9d"
-], o1 = [
+], A1 = [
   "color: #437761",
   "color: #537a36",
   "color: #8d7041",
   "color: #396c9e",
   "color: #7a5f9d",
   "color: #7a5f9d"
-], r1 = (t, e, i, s, o) => {
+], d1 = (t, e, i, s, o) => {
   console.log(
-    i1 + s,
+    a1 + s,
     (/* @__PURE__ */ new Date()).toISOString(),
-    s1[e],
-    n1[e],
+    u1[e],
+    c1[e],
     "",
-    o1[t],
+    A1[t],
     i,
     "",
     ...o
   );
 }, es = /* @__PURE__ */ new Set();
 let zo = !1;
-function a1(t) {
+function g1(t) {
   return typeof window > "u" ? () => {
   } : (zo || (zo = !0, window.addEventListener("beforeunload", () => {
     for (const e of es)
@@ -47651,15 +47782,15 @@ class to {
     return navigator.onLine ?? !1;
   }
 }
-to.prototype.log = r1;
-to.prototype.beforeExit = a1;
+to.prototype.log = d1;
+to.prototype.beforeExit = g1;
 class mc extends Error {
   constructor(e) {
     super(`Connection closed${e != null ? `: ${e}` : ""}`);
   }
 }
 const Cc = new Uint8Array(0);
-class c1 {
+class l1 {
   constructor(e) {
     this.size = e, this.#n = e >>> 1, this.#s();
   }
@@ -47683,11 +47814,11 @@ class c1 {
     return new Uint8Array(e);
   }
 }
-let u1 = /* @__PURE__ */ new c1(16 * 1024);
+let f1 = /* @__PURE__ */ new l1(16 * 1024);
 function is(t) {
-  return u1.alloc(t);
+  return f1.alloc(t);
 }
-class A1 {
+class h1 {
   #t;
   #e;
   wait() {
@@ -47699,9 +47830,9 @@ class A1 {
     this.#t?.(), this.#t = void 0, this.#e = void 0;
   }
 }
-const d1 = new TextEncoder();
+const p1 = new TextEncoder();
 new TextDecoder();
-function g1(t) {
+function I1(t) {
   if (typeof Buffer < "u")
     return Buffer.byteLength(t, "utf8");
   let e = t.length;
@@ -47711,7 +47842,7 @@ function g1(t) {
   }
   return e;
 }
-function l1(t) {
+function m1(t) {
   return t--, t |= t >> 1, t |= t >> 2, t |= t >> 4, t |= t >> 8, t |= t >> 16, t + 1;
 }
 class Cn {
@@ -47759,7 +47890,7 @@ class Cn {
     this.#o = e;
     const i = this.#e + e;
     if (i > this.#t.length) {
-      const o = is(l1(i));
+      const o = is(m1(i));
       o.set(this.#t), this.#t = o;
     }
     const s = this.#t.subarray(this.#e, i);
@@ -47815,9 +47946,9 @@ class Xo extends mc {
 function bc(t) {
   return t instanceof Error ? t : "error" in t ? t.error : new Error("unknown WebSocket error", { cause: t });
 }
-class f1 {
+class C1 {
   constructor(e) {
-    this.socket = e, this._cv = new A1(), e.addEventListener("message", (i) => {
+    this.socket = e, this._cv = new h1(), e.addEventListener("message", (i) => {
       this.onMessage(i), this._cv.notify();
     }), e.addEventListener("close", (i) => {
       this._error || (this._error = new Xo(i.code, i.reason), this._cv.notify());
@@ -47840,12 +47971,12 @@ class f1 {
     this.socket.close(e, i), this._error = new Xo(e, i ?? ""), this._cv.notify();
   }
 }
-class h1 extends f1 {
+class b1 extends C1 {
   #t = Cn.alloc(0);
   onMessage(e) {
     if (typeof e.data == "string") {
-      const i = this.#t.writeSync(g1(e.data));
-      d1.encodeInto(e.data, i);
+      const i = this.#t.writeSync(I1(e.data));
+      p1.encodeInto(e.data, i);
     } else {
       const i = new Uint8Array(e.data);
       this.#t.writeSync(i.length).set(i);
@@ -47867,7 +47998,7 @@ class h1 extends f1 {
     e.length && this.socket.send(e);
   }
 }
-function p1(t, e) {
+function y1(t, e) {
   const {
     url: i,
     implementation: s = WebSocket,
@@ -47892,21 +48023,21 @@ function p1(t, e) {
     e?.addEventListener("abort", d), c.addEventListener("error", u), c.addEventListener("open", A);
   });
 }
-const I1 = async (t, e) => new h1(await p1(t, e)), m1 = {
+const B1 = async (t, e) => new b1(await y1(t, e)), _1 = {
   1: "pluto",
   2: "venus",
   3: "aurora",
   4: "vesta",
   5: "flora"
 };
-class C1 {
+class E1 {
   _baseDomain;
   _subdomains;
   _WebSocket;
   constructor({
     ws: e = WebSocket,
     baseDomain: i = "web.telegram.org",
-    subdomains: s = m1
+    subdomains: s = _1
   } = {}) {
     if (!e)
       throw new zt(
@@ -47916,7 +48047,7 @@ class C1 {
   }
   async connect(e, i) {
     const s = `wss://${this._subdomains[e.id]}.${this._baseDomain}/apiws${e.testMode ? "_test" : ""}`;
-    return I1({
+    return B1({
       url: s,
       implementation: this._WebSocket,
       protocols: "binary"
@@ -47926,25 +48057,25 @@ class C1 {
     return new Jy(new Zy());
   }
 }
-class b1 extends Ur {
+class Q1 extends Ur {
   constructor(e) {
     super({
       crypto: new Ky(),
-      transport: new C1(),
+      transport: new E1(),
       platform: new to(),
       ...e,
       storage: typeof e.storage == "string" ? new Yo(e.storage) : e.storage ?? new Yo("client.session")
     });
   }
 }
-class j1 extends l {
+class G1 extends l {
   constructor(e) {
     if ("client" in e) {
       super(e);
       return;
     }
     super({
-      client: new b1(e),
+      client: new Q1(e),
       disableUpdates: e.disableUpdates,
       skipConversationUpdates: e.skipConversationUpdates,
       updates: e.updates
@@ -47952,5 +48083,6 @@ class j1 extends l {
   }
 }
 export {
-  j1 as TelegramClient
+  F1 as MemoryStorage,
+  G1 as TelegramClient
 };

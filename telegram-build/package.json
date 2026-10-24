@@ -1,0 +1,14 @@
+{
+  "name": "viral-scanner-mobile-secure-bundle",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@mtcute/web": "0.32.4"
+  },
+  "devDependencies": {
+    "vite": "6.4.4"
+  }
+}
