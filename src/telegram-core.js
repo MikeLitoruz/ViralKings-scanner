@@ -34,7 +34,7 @@ export function mapTelegramMessage(message,source,chat,profile,now=Date.now()){
  if(!Number.isFinite(age)||age<0||age>maxAge||video.durationSeconds==null||video.durationSeconds<0||video.durationSeconds>maxDuration)return null;
  const channelId=bareId(chat?.id||source.id),messageId=num(message.id),username=str(chat?.username||source.username).replace(/^@/,'');
  if(!/^\d{5,20}$/.test(channelId)||!Number.isSafeInteger(messageId)||messageId<1)return null;
- const body=str(message.text||'').slice(0,5000),first=body.split(/\r?\n/).find(s=>s.trim())?.trim(),title=(first||`Telegram video ${messageId}`).slice(0,500);
+ const body=str(message.text||''),first=body.split(/\r?\n/).find(s=>s.trim())?.trim(),title=(first||`No caption · video #${messageId}`).slice(0,500);
  const assessment=assessProfileContent(title,body,profile),captionless=!first;
  if(!captionless&&!assessment.accept)return null;
  const views=num(message.views),speed=views==null?null:views/Math.max(age,1/60);
@@ -42,9 +42,21 @@ export function mapTelegramMessage(message,source,chat,profile,now=Date.now()){
  return {Profile:profile.name,ProfileId:profile.id,Platform:'Telegram',VideoId:`tg:${channelId}:${messageId}`,URL:username?`https://t.me/${username}/${messageId}`:`https://t.me/c/${channelId}/${messageId}`,Title:title,Description:body,PublishedAt:new Date(stamp).toISOString(),AgeHours:+age.toFixed(2),DurationSeconds:video.durationSeconds,Views:views,VelocityPerHour:speed==null?null:+speed.toFixed(2),ViewsPerHour:speed==null?null:+speed.toFixed(2),TelegramForwards:num(message.forwards),TelegramComments:num(message.replies?.count??message.replies),TelegramReactions:reactionCount(message.reactions),TelegramChannelId:channelId,TelegramUsername:username,TelegramMessageId:messageId,TelegramSourceType:source.type,TelegramSourceKey:sourceKey,TelegramMimeType:video.mimeType,TelegramFileName:video.filename,TelegramFileSize:video.bytes,ChannelName:str(chat?.title||source.title||username),Relevance:assessment.relevance,RelevanceReason:captionless?'No caption; manual verification required':assessment.reason,ResultStatus:'UNCERTAIN',SuggestedPopularity:'NONE',MobileUnverified:true,Qualified:false,Accepted:false,MobileEligibility:true,DiscoverySource:'TELEGRAM_MTCUTE_BROWSER',QueryHitCount:1,TelegramSyntheticTitle:captionless};
 }
 async function thumbnailData(client,video){
- const thumb=video?.thumbnails?.filter(x=>!x.isVideo&&Number.isFinite(x.fileSize)&&x.fileSize>0&&x.fileSize<=120000).sort((a,b)=>b.width*b.height-a.width*a.height)[0];
- if(!thumb||typeof client.downloadAsBuffer!=='function')return '';
- try{const bytes=await client.downloadAsBuffer(thumb);if(!bytes?.length||bytes.length>120000)return '';let binary='';for(const b of bytes)binary+=String.fromCharCode(b);return 'data:image/jpeg;base64,'+btoa(binary);}catch{return '';}
+ if(typeof client.downloadAsBuffer!=='function')return '';
+ // Prefer the Telegram video-cover photo, then the largest practical still thumbnail.
+ const covers=video?.videoCover?.thumbnails||[];
+ const thumbs=[...covers,...(video?.thumbnails||[])].filter(x=>!x.isVideo&&Number.isFinite(x.fileSize)&&x.fileSize>0&&x.fileSize<=500000&&Number.isFinite(x.width)&&Number.isFinite(x.height)&&x.width>=160&&x.height>=90).sort((a,b)=>b.width*b.height-a.width*a.height);
+ for(const thumb of thumbs.slice(0,3)){
+  try{
+   const bytes=await client.downloadAsBuffer(thumb);
+   if(!bytes?.length||bytes.length>500000)continue;
+   const mime=bytes[0]===0xff&&bytes[1]===0xd8?'image/jpeg':bytes[0]===0x89&&bytes[1]===0x50?'image/png':bytes[0]===0x52&&bytes[1]===0x49&&bytes[8]===0x57?'image/webp':null;
+   if(!mime)continue;
+   let binary='';for(const b of bytes)binary+=String.fromCharCode(b);
+   return 'data:'+mime+';base64,'+btoa(binary);
+  }catch{/* Try the next available Telegram preview size. */}
+ }
+ return '';
 }
 export async function discoverTelegram({client,profile,sources,limitPerSource=80,signal,onProgress=()=>{},now=Date.now()}){
  if(!client||typeof client.iterHistory!=='function'||typeof client.getChat!=='function')throw Error('Telegram is not connected.');
