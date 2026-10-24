@@ -8,7 +8,7 @@ test('local runs save and reload are part of the scan lifecycle',()=>{
 });
 test('Telegram thumbnails use a bounded mtcute download',()=>{
  const tg=read('src/telegram-core.js');assert.match(tg,/downloadAsBuffer\(thumb\)/);
- assert.match(tg,/120000/);assert.match(tg,/ThumbnailUrl=await thumbnailData/);
+ assert.match(tg,/500000/);assert.match(tg,/ThumbnailUrl=await thumbnailData/);
 });
 test('manual queue export has no Microsoft token dependency',()=>{
  const app=read('src/app.js');assert.match(app,/await shareJson\(/);assert.match(app,/if\(drive.connected\(\)\)/);
