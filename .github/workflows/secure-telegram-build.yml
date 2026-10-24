@@ -4,7 +4,7 @@ on:
     branches: [secure-telegram-vault]
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,6 +25,16 @@ jobs:
           node --test tests/telegram-vault.test.mjs
           test -s src/vendor/mtcute-client.js
           grep -q 'MemoryStorage' src/vendor/mtcute-client.js
+      - name: Commit verified browser bundle to the feature branch
+        if: github.ref == 'refs/heads/secure-telegram-vault'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f src/vendor/
+          if ! git diff --cached --quiet; then
+            git commit -m "Build verified secure mtcute browser bundle [skip ci]"
+            git push origin HEAD:secure-telegram-vault
+          fi
       - name: Package tested GitHub Pages site
         uses: actions/upload-artifact@v4
         with:
