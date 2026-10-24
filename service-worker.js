@@ -1,4 +1,4 @@
-const CACHE='viral-mobile-secure-session-v4';
+const CACHE='viral-mobile-multiprofile-v5';
 const STATIC=['./','./index.html','./mobile.css','./src/app.js','./src/telegram-core.js','./src/telegram-auth-browser.js','./src/youtube.js','./src/onedrive.js','./shared/profile-intelligence.mjs','./shared/ranking-contract.mjs','./shared/profiles.json','./shared/youtube.json','./shared/telegram-sources.json'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(STATIC))));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key))))));
