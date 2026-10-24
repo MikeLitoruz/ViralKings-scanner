@@ -1,6 +1,10 @@
 /** Telegram session vault: mtcute MemoryStorage + passphrase-encrypted exported session. */
 const SLOT='viral-telegram-mtcute-vault-v3',OLD_SLOT='viral-telegram-mtcute-settings-v1',OLD_DB='viral-scanner-telegram-mtcute-v1';
 const LABEL=new TextEncoder().encode('viral-scanner-telegram-vault:v3'),ROUNDS=310000;
+const TAB_SLOT='viral-telegram-tab-session-v1',TAB_LIFETIME=30*60*1000;
+function clearTab(){try{sessionStorage.removeItem(TAB_SLOT);}catch{}}
+function keepTab(data){try{sessionStorage.setItem(TAB_SLOT,JSON.stringify({expires:Date.now()+TAB_LIFETIME,data}));}catch{}}
+export async function resumeTab(){let v;try{v=JSON.parse(sessionStorage.getItem(TAB_SLOT)||'null');}catch{clearTab();return false;}if(!v)return false;if(!v.expires||v.expires<Date.now()||!v.data){clearTab();return false;}try{const {TelegramClient,MemoryStorage}=await library(),d=v.data,tg=new TelegramClient({apiId:d.apiId,apiHash:d.apiHash,storage:new MemoryStorage()});const me=await tg.start({session:d.session,phone:async()=>{throw Error('Telegram session expired.');}});if(!me)throw Error('Session expired');activeClient=tg;activeData=d;return true;}catch(e){clearTab();throw e;}}
 let activeClient=null,activeKey=null,activeData=null;
 export const connected=()=>!!activeClient;
 export const hasSavedSession=()=>!!localStorage.getItem(SLOT);
@@ -51,7 +55,7 @@ async function library(){
  }catch(e){throw Error('Secure Telegram browser bundle unavailable: '+String(e.message||e).slice(0,120));}
 }
 export function client(){if(!activeClient)throw Error('Connect Telegram in the Connections tab first.');return activeClient;}
-export async function connect({apiId,apiHash,phone,passphrase,requestInput=async label=>window.prompt(label)||'',implementation}={}){
+export async function connect({apiId,apiHash,phone,passphrase,rememberTab=false,requestInput=async label=>window.prompt(label)||'',implementation}={}){
  if(activeClient)return {connected:true,already:true};
  const existing=localStorage.getItem(SLOT);
  let handle,data;
@@ -79,7 +83,7 @@ export async function connect({apiId,apiHash,phone,passphrase,requestInput=async
   if(typeof session!=='string'||session.length<20||session.length>5000)throw Error('Telegram returned an invalid exported session.');
   data.session=session;
   localStorage.setItem(SLOT,await seal(data,handle));
-  activeClient=tg;activeKey=handle;activeData=data;
+  activeClient=tg;activeKey=handle;activeData=data;if(rememberTab)keepTab(data);else clearTab();
   return {connected:true,accountName:String(me.displayName||me.firstName||me.username||'Telegram user').slice(0,80)};
  }catch(e){
   if(newLogin)try{await tg.logOut();}catch{}
@@ -89,7 +93,7 @@ export async function connect({apiId,apiHash,phone,passphrase,requestInput=async
 }
 export async function disconnect({forget=false}={}){
  const tg=activeClient,handle=activeKey,data=activeData;
- activeClient=null;activeKey=null;activeData=null;
+ clearTab();activeClient=null;activeKey=null;activeData=null;
  let revokeSucceeded=false,saveFailure=null;
  if(tg){
   if(forget){try{await tg.logOut();revokeSucceeded=true;}catch{}}
@@ -97,7 +101,7 @@ export async function disconnect({forget=false}={}){
    try{
     const session=await tg.exportSession();
     if(typeof session!=='string'||session.length<20||session.length>5000)throw Error('Invalid Telegram session.');
-    localStorage.setItem(SLOT,await seal({...data,session},handle));
+    if(handle)localStorage.setItem(SLOT,await seal({...data,session},handle));
    }catch(e){saveFailure=e;}
   }
   try{await tg.destroy();}catch{}

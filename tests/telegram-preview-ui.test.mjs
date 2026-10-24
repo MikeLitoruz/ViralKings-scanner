@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';const read=p=>fs.readFileSync(p,'utf8');
+test('Telegram full caption is retained and rendered as plain text',()=>{const t=read('src/telegram-core.js'),a=read('src/app.js');assert.match(t,/const body=str\(message.text\|\|''\)/);assert.match(a,/el\('p','caption-text',row.Description/);assert.match(a,/row.Description/);});
+test('thumbnail selection requires a useful resolution',()=>{const t=read('src/telegram-core.js');assert.match(t,/x.width>=160&&x.height>=90/);assert.match(t,/downloadAsBuffer\(thumb\)/);});
+test('tab unlock is optional and cleared with lock',()=>{const t=read('src/telegram-auth-browser.js'),html=read('index.html');assert.match(t,/rememberTab=false/);assert.match(t,/TAB_LIFETIME=30\*60\*1000/);assert.match(t,/clearTab\(\);activeClient=null/);assert.match(html,/id="telegram-remember-tab"/);});

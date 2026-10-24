@@ -1,0 +1,23 @@
+name: Verify Telegram preview caption and unlock changes
+on:
+  push:
+    branches: [feature/telegram-caption-preview-and-tab-unlock]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate syntax and existing tests
+        run: |
+          node --check src/app.js
+          node --check src/telegram-core.js
+          node --check src/telegram-auth-browser.js
+          node --check service-worker.js
+          node --test tests/*.test.mjs
+      - name: Validate new UI and security contracts
+        run: node --test tests/telegram-preview-ui.test.mjs
