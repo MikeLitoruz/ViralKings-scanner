@@ -30,6 +30,7 @@ async function search(){
  if(state.scanAbort)return;
  const platform=$('platform').value,profile=state.profiles.find(p=>p.id===$('profile').value);
  if(!profile)throw new Error('Select a profile.');
+ if(!platform)throw new Error('Choose a search platform.');
  const controller=new AbortController();state.scanAbort=controller;$('scan').disabled=true;$('cancel').classList.remove('hidden');
  try{
   let rows=[],failures=[],searched=0;
@@ -42,7 +43,7 @@ async function search(){
   }else throw new Error('Unsupported mobile provider.');
   const id=drive.recordId('mobile'),run={schema:1,id,origin:'mobile',createdAt:new Date().toISOString(),profileId:profile.id,profileName:profile.name,platforms:[platform],status:'PROVISIONAL',queryCount:searched,sourceFailures:failures,results:rows};
   state.rows=[...rows,...state.rows.filter(x=>!rows.some(y=>x.VideoId===y.VideoId&&x.Platform===y.Platform&&x.ProfileId===y.ProfileId))];
-  const caption=`${rows.length} Telegram/YouTube video candidates${failures.length?' · '+failures.length+' channel failures':''}. Mobile ranking is provisional.`;
+  const caption=`${rows.length} video candidates${failures.length?' · '+failures.length+' channel failures':''}. Mobile ranking is provisional.`;
   if(drive.connected()){try{const f=await drive.ensureFolders();await drive.publishJson(f.Runs,`${id}.json`,run);status('scan-status',`${caption} Run saved to OneDrive.`);}catch(e){status('scan-status',`${caption} OneDrive sync failed: ${e.message}`);}}
   else status('scan-status',`${caption} NOT synchronized. Connect OneDrive to share with Windows.`);
   tab('results');
