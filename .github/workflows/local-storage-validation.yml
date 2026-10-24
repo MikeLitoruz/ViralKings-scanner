@@ -1,0 +1,23 @@
+name: Validate local runs thumbnails and manual export
+on:
+  push:
+    branches: [feature/local-runs-telegram-thumbnails-manual-onedrive]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax checks
+        run: |
+          node --check src/app.js
+          node --check src/telegram-core.js
+          node --check src/local-runs.js
+          node --check src/share-json.js
+          node --check service-worker.js
+      - name: Feature contract checks
+        run: node --test tests/local-runs-export.test.mjs
